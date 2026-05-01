@@ -1455,6 +1455,7 @@ function toggleLanguage() {
 
 function setLanguage(lang) {
   document.documentElement.setAttribute('data-lang', lang);
+  try { renderTestimonies(lang); } catch (e) { console.error(e); }
   const langBtn = document.getElementById('lang-toggle-btn');
   if (langBtn) {
     if (lang === 'id') {
