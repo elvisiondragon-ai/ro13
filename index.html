@@ -910,6 +910,15 @@ async function handleSubmit() {
     });
 
     if (response.ok) {
+      // Trigger notifikasi via Edge Function langsung dari Frontend
+      fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/pici-notification', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ record: data })
+      }).catch(e => console.error('Gagal memanggil notifikasi:', e));
+
       document.getElementById('form-inner').style.display = 'none';
       document.getElementById('form-success').classList.add('show');
     } else {
