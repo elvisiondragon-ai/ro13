@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id" data-theme="dark">
+<html lang="id" data-theme="dark" data-lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>Ro33 – Organization of Result Orientation 33</title>
+<title>Ro33 – Result Origin 33 | Awal Mula Sebuah Hasil Adalah Kita</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -523,6 +523,188 @@
     .video-desc { display: none; }
   }
 
+  /* SIGNATURE CARD — APA ITU RO33 */
+  .signature-section {
+    padding: 6rem 2rem 4rem;
+    max-width: 860px;
+    margin: 0 auto;
+  }
+  .signature-card {
+    position: relative;
+    background: linear-gradient(135deg, #1F1A12 0%, #2A2316 50%, #1F1A12 100%);
+    border: 1px solid var(--gold);
+    padding: 3.5rem 3rem;
+    overflow: hidden;
+    box-shadow: 0 0 60px rgba(184,149,90,0.08), inset 0 0 40px rgba(184,149,90,0.04);
+    border-radius: 4px;
+  }
+  [data-theme="light"] .signature-card {
+    background: linear-gradient(135deg, #F5EDD8 0%, #EFE4C8 50%, #F5EDD8 100%);
+    box-shadow: 0 0 60px rgba(138,104,48,0.08), inset 0 0 40px rgba(138,104,48,0.04);
+  }
+  .signature-card::before {
+    content: '';
+    position: absolute;
+    top: 12px; left: 12px; right: 12px; bottom: 12px;
+    border: 0.5px solid var(--border);
+    pointer-events: none;
+    border-radius: 2px;
+  }
+  .signature-watermark {
+    position: absolute;
+    right: -30px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(10rem, 22vw, 18rem);
+    font-weight: 300;
+    color: var(--gold);
+    opacity: 0.06;
+    line-height: 1;
+    pointer-events: none;
+    user-select: none;
+  }
+  .signature-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.45em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+  .signature-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    position: relative;
+  }
+  .signature-title em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .signature-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--text-muted);
+    margin-bottom: 2rem;
+    position: relative;
+  }
+  .signature-divider {
+    width: 50px;
+    height: 0.5px;
+    background: var(--gold);
+    margin: 0 0 2rem;
+    opacity: 0.6;
+  }
+  .signature-body {
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.95;
+    margin-bottom: 1.5rem;
+    position: relative;
+    opacity: 0.92;
+  }
+  .signature-body strong {
+    color: var(--gold-light);
+    font-weight: 400;
+  }
+  .signature-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1rem;
+    margin: 2.5rem 0 2rem;
+    position: relative;
+  }
+  .signature-pillar {
+    border-left: 1px solid var(--gold);
+    padding: 0.5rem 0 0.5rem 1.1rem;
+  }
+  .signature-pillar-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+  }
+  .signature-pillar-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+  .signature-meaning {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 0.5px solid var(--border);
+    position: relative;
+  }
+  .signature-meaning-label {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+  .meaning-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-top: 1rem;
+  }
+  .meaning-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+  .meaning-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--gold-light);
+    line-height: 1;
+    min-width: 40px;
+  }
+  .meaning-text {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding-top: 0.4rem;
+  }
+  .meaning-text strong {
+    color: var(--text);
+    font-weight: 400;
+  }
+  .signature-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.65rem;
+    margin-top: 2rem;
+    position: relative;
+  }
+  .signature-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 0.5px solid var(--gold);
+    padding: 0.5rem 1rem;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--gold-light);
+    text-transform: uppercase;
+    background: rgba(184,149,90,0.05);
+  }
+  [data-theme="light"] .signature-badge {
+    background: rgba(138,104,48,0.06);
+  }
+  @media (max-width: 600px) {
+    .signature-card { padding: 2.5rem 1.5rem; }
+    .meaning-grid { grid-template-columns: 1fr; gap: 1rem; }
+    .signature-pillars { grid-template-columns: 1fr 1fr; }
+  }
+
   /* CARD GRID FOR PAIN POINTS */
   .card-section {
     padding: 6rem 2rem;
@@ -594,6 +776,43 @@
     .card-grid { grid-template-columns: 1fr; }
     .card-content { padding: 1.75rem 1.5rem; }
   }
+
+  /* LANGUAGE SWITCHER */
+  html[data-lang="id"] .lang-en { display: none !important; }
+  html[data-lang="en"] .lang-id { display: none !important; }
+
+  .nav-right { display: flex; align-items: center; gap: 0.5rem; }
+  .lang-switch {
+    display: flex;
+    gap: 0.25rem;
+    align-items: center;
+    border: 0.5px solid var(--border);
+    padding: 2px;
+    background: var(--bg-2);
+  }
+  .lang-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+    border-radius: 2px;
+    opacity: 0.4;
+    transition: opacity 0.2s, transform 0.2s, background 0.2s;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .lang-btn:hover {
+    opacity: 0.8;
+  }
+  .lang-btn.active {
+    opacity: 1;
+    background: var(--bg-3);
+    border-color: var(--gold);
+    color: var(--gold-light);
+  }
 </style>
 </head>
 <body>
@@ -605,6 +824,10 @@
   </div>
   <div class="nav-right">
     <span class="nav-brand">eL Vision Group</span>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="lang-id-btn" onclick="setLanguage('id')">🇮🇩</button>
+      <button class="lang-btn" id="lang-en-btn" onclick="setLanguage('en')">🇬🇧</button>
+    </div>
     <button class="theme-toggle" onclick="toggleTheme()">
       <span class="toggle-icon" id="toggle-icon">☀</span>
       <span id="toggle-label">Light</span>
@@ -613,7 +836,7 @@
 </nav>
 
 <div class="hero">
-  <p class="hero-eyebrow"><span style="font-size: 1.5rem; font-family: 'Cormorant Garamond', serif; color: var(--gold-light); text-transform: uppercase;">RO33</span><br><br>Result Orientation 33</p>
+  <p class="hero-eyebrow"><span style="font-size: 1.5rem; font-family: 'Cormorant Garamond', serif; color: var(--gold-light); text-transform: uppercase;">RO33</span><br><br>Result Origin 33</p>
   <h1>Bukan untuk<br><em>semua orang.</em></h1>
   <div class="hero-divider"></div>
   <p class="hero-tagline">Sebuah lingkaran kecil bagi mereka yang membangun, memimpin, dan terus bertumbuh.</p>
@@ -622,6 +845,78 @@
     <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; color: var(--text-muted); font-style: italic;">PICI – Private Inner Circle Insider</p>
   </div>
 </div>
+
+<div class="sep"></div>
+
+<section class="signature-section">
+  <div class="signature-card">
+    <div class="signature-watermark">33</div>
+    <p class="signature-eyebrow">Apa Itu Ro33</p>
+    <h2 class="signature-title">Result Origin <em>33</em></h2>
+    <p class="signature-sub">Awal mula dari sebuah hasil — adalah kita.</p>
+    <div class="signature-divider"></div>
+
+    <p class="signature-body">
+      Ro33 bukan forum motivasi. Bukan juga seminar nasihat. Ini adalah ruang <strong>sharing</strong> dan <strong>cleansing mind &amp; energy</strong> antar founder dan pemimpin yang percaya satu hal sederhana: <strong>hasil tidak datang dari luar</strong>. Hasil lahir dari diri yang jernih, dari titik nol, dari <em>origin</em>-nya sendiri.
+    </p>
+    <p class="signature-body">
+      Tidak perlu banyak teori. Yang kami bukukan di sini adalah teori yang lahir dari praktek — yang sudah <strong>langsung berhasil</strong> di lapangan. Tanpa basa-basi, tanpa filter akademis, tanpa janji manis.
+    </p>
+
+    <div class="signature-pillars">
+      <div class="signature-pillar">
+        <p class="signature-pillar-label">Sharing</p>
+        <p class="signature-pillar-text">Berbagi praktek nyata, bukan ceramah teori.</p>
+      </div>
+      <div class="signature-pillar">
+        <p class="signature-pillar-label">Cleansing</p>
+        <p class="signature-pillar-text">Menjernihkan pikiran dan energi yang menumpuk.</p>
+      </div>
+      <div class="signature-pillar">
+        <p class="signature-pillar-label">Result</p>
+        <p class="signature-pillar-text">Fokus pada hasil yang dapat diukur dan diulang.</p>
+      </div>
+      <div class="signature-pillar">
+        <p class="signature-pillar-label">No Theory</p>
+        <p class="signature-pillar-text">Bukukan dari praktek, bukan dari buku teks.</p>
+      </div>
+    </div>
+
+    <div class="signature-meaning">
+      <p class="signature-meaning-label">Asal Muasal Angka 33</p>
+      <p class="signature-body" style="font-size: 14px; margin-bottom: 1.5rem;">
+        Angka <strong>33</strong> bukan dipilih sembarang. Ia lahir dari posisi dua huruf <strong>R</strong> dan <strong>O</strong> dalam urutan alfabet — dijumlahkan menghasilkan angka master.
+      </p>
+      <div class="meaning-grid">
+        <div class="meaning-item">
+          <span class="meaning-letter">R</span>
+          <p class="meaning-text"><strong>Huruf ke-18</strong> dalam alfabet. Mewakili <strong>Result</strong> — hasil nyata sebagai pondasi setiap pertemuan, percakapan, dan energi yang dilepaskan.</p>
+        </div>
+        <div class="meaning-item">
+          <span class="meaning-letter">O</span>
+          <p class="meaning-text"><strong>Huruf ke-15</strong> dalam alfabet. Mewakili <strong>Origin</strong> — sumber, asal mula, titik nol. Karena hasil sejati selalu lahir dari diri yang jernih, bukan dari kebisingan luar.</p>
+        </div>
+      </div>
+      <div style="margin-top: 2rem; padding: 1.5rem; border: 0.5px solid var(--gold); background: rgba(184,149,90,0.04); text-align: center;">
+        <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--gold-light); letter-spacing: 0.05em;">
+          R <span style="opacity:0.5;">(18)</span> &nbsp;+&nbsp; O <span style="opacity:0.5;">(15)</span> &nbsp;=&nbsp; <em style="font-style: italic;">33</em>
+        </p>
+      </div>
+      <p class="signature-body" style="margin-top: 1.5rem; font-size: 13.5px;">
+        Dalam numerologi, <strong>33</strong> adalah <strong>Master Number</strong> tertinggi — disebut juga <em>"Master Teacher"</em>. Angka langka yang melambangkan komunitas guru, penyembuh, dan pelayan yang fokus pada pertumbuhan sesama. Bukan kebetulan Ro<strong>33</strong> berdiri di angka ini.
+      </p>
+    </div>
+
+    <div class="signature-badges">
+      <span class="signature-badge">Rp 0 Untuk Bergabung*</span>
+      <span class="signature-badge">Praktek &gt; Teori</span>
+      <span class="signature-badge">Tanpa Basa-Basi</span>
+    </div>
+    <p style="font-size: 10px; color: var(--text-muted); margin-top: 1rem; letter-spacing: 0.05em; opacity: 0.7;">
+      *Untuk saat ini. Tidak ada biaya keanggotaan, tidak ada paket, tidak ada upsell.
+    </p>
+  </div>
+</section>
 
 <div class="sep"></div>
 
@@ -859,7 +1154,7 @@
 </div>
 
 <footer>
-  <p>© 2026 Ro33 – Organization of Result Orientation 33</p>
+  <p>© 2026 Ro33 – Result Origin 33</p>
   <p>ro33.org</p>
 </footer>
 
@@ -870,6 +1165,429 @@ function toggleTheme() {
   html.setAttribute('data-theme', isDark ? 'light' : 'dark');
   document.getElementById('toggle-icon').textContent = isDark ? '☾' : '☀';
   document.getElementById('toggle-label').textContent = isDark ? 'Dark' : 'Light';
+}
+
+/* VIDEO TESTIMONY DATA */
+const testimonies = [
+  {
+    name: "Arif",
+    role: "Penyintas Kanker Stage 4",
+    desc: "Melawan diagnosis terminal melalui rekalibrasi frekuensi tubuh.",
+    src: "assets/testimony/arif_interview_indo_comp.mp4",
+    poster: "assets/testimony/arif_interview_indo.jpg"
+  },
+  {
+    name: "Arif",
+    role: "Cellular Recovery",
+    desc: "Rahasia pemulihan seluler dan penyelarasan identitas diri.",
+    src: "assets/testimony/arifindo_comp.mp4",
+    poster: "assets/testimony/arifindo.jpeg"
+  },
+  {
+    name: "Habib Umar Assegaf",
+    role: "Ustadz / Spiritual",
+    desc: "Elevasi spiritual dan kejernihan mental dalam pengabdian.",
+    src: "assets/testimony/habib.mp4",
+    poster: "assets/testimony/habib.jpg"
+  },
+  {
+    name: "Pak Agus SH., MH.",
+    role: "Kepala Intelijen",
+    desc: "Keseimbangan batin bagi mereka dengan tanggung jawab tinggi.",
+    src: "assets/testimony/agus.mp4",
+    poster: "assets/testimony/agus.jpg"
+  },
+  {
+    name: "Dr. Gumilar",
+    role: "Hypnotherapist",
+    desc: "Perspektif medis mengenai kekuatan pikiran dalam pemulihan.",
+    src: "assets/testimony/gumilar.mp4",
+    poster: "assets/testimony/gumilar.jpg"
+  },
+  {
+    name: "eL Vision – Magnet",
+    role: "Problem Solver",
+    desc: "Berhenti mengelola masalah, mulai menyelesaikannya dari akar.",
+    src: "assets/testimony/magnet.mp4",
+    poster: "assets/testimony/magnet.jpg"
+  },
+  {
+    name: "Lena",
+    role: "Entrepreneur",
+    desc: "Berpindah dari mentalitas kekurangan menuju kelimpahan nyata.",
+    src: "assets/testimony/lena.mp4",
+    poster: "assets/testimony/lena.jpg"
+  },
+  {
+    name: "Gen Z",
+    role: "Modern Lifestyle",
+    desc: "Mental edge yang dibutuhkan untuk navigasi dunia modern.",
+    src: "assets/testimony/gen_z.mp4",
+    poster: "assets/testimony/gen_z.jpg"
+  }
+];
+
+const testimoniesDict = {
+  id: [
+    { name: "Arif", role: "Penyintas Kanker Stage 4", desc: "Melawan diagnosis terminal melalui rekalibrasi frekuensi tubuh." },
+    { name: "Arif", role: "Cellular Recovery", desc: "Rahasia pemulihan seluler dan penyelarasan identitas diri." },
+    { name: "Habib Umar Assegaf", role: "Ustadz / Spiritual", desc: "Elevasi spiritual dan kejernihan mental dalam pengabdian." },
+    { name: "Pak Agus SH., MH.", role: "Kepala Intelijen", desc: "Keseimbangan batin bagi mereka dengan tanggung jawab tinggi." },
+    { name: "Dr. Gumilar", role: "Hypnotherapist", desc: "Perspektif medis mengenai kekuatan pikiran dalam pemulihan." },
+    { name: "eL Vision – Magnet", role: "Problem Solver", desc: "Berhenti mengelola masalah, mulai menyelesaikannya dari akar." },
+    { name: "Lena", role: "Entrepreneur", desc: "Berpindah dari mentalitas kekurangan menuju kelimpahan nyata." },
+    { name: "Gen Z", role: "Modern Lifestyle", desc: "Mental edge yang dibutuhkan untuk navigasi dunia modern." }
+  ],
+  en: [
+    { name: "Arif", role: "Stage 4 Cancer Survivor", desc: "Fighting terminal diagnosis through body frequency recalibration." },
+    { name: "Arif", role: "Cellular Recovery", desc: "The secret of cellular recovery and personal identity alignment." },
+    { name: "Habib Umar Assegaf", role: "Ustad / Spiritual", desc: "Spiritual elevation and mental clarity in devotion." },
+    { name: "Pak Agus SH., MH.", role: "Head of Intelligence", desc: "Inner balance for those with high levels of responsibility." },
+    { name: "Dr. Gumilar", role: "Hypnotherapist", desc: "Medical perspective on the power of the mind in recovery." },
+    { name: "eL Vision – Magnet", role: "Problem Solver", desc: "Stop managing problems, start solving them from the root." },
+    { name: "Lena", role: "Entrepreneur", desc: "Moving from a scarcity mindset towards real abundance." },
+    { name: "Gen Z", role: "Modern Lifestyle", desc: "The mental edge needed to navigate the modern world." }
+  ]
+};
+
+const dilemmaTranslations = {
+  id: [
+    { eyebrow: "The Founder's Dilemma", title: "Kesuksesan Mengisolasi Anda", desc: "Semakin tinggi bisnis Anda, semakin sedikit orang yang mengerti. Karyawan meminta kepastian, keluarga meminta waktu. Ro33 adalah satu-satunya tempat di mana Anda tidak lagi memimpin sendirian." },
+    { eyebrow: "Lingkaran Kepalsuan", title: "Anda Dikelilingi 'Yes Men'", desc: "Mereka tertawa bukan karena Anda lucu, tapi karena Anda bosnya. Di Ro33, Anda tidak akan menemukan bawahan yang mencari muka, melainkan sesama Founder yang berani menantang Anda untuk tumbuh lebih brutal." },
+    { eyebrow: "Ketimpangan Frekuensi", title: "Lingkaran Lama Anda Tidak Relevan", desc: "Anda bisa membayari liburan mereka, tapi mereka tidak bisa membantu bisnis Anda. Upgrade networking Anda ke level elit yang membicarakan akuisisi, pajak miliaran, dan ekspansi." },
+    { eyebrow: "Filter Kepercayaan", title: "Satu Partner Salah = Hancur", desc: "Mencari investor atau partner dari lingkaran terbuka adalah bunuh diri bisnis. Ro33 memfilter anggotanya secara ketat. Di meja kami, miliaran rupiah berpindah tangan murni berbasis reputasi dan kepercayaan." },
+    { eyebrow: "Ilusi Kebebasan", title: "Uang Banyak, Waktu Menikmatinya Nol", desc: "Anda punya kapal pesiar, tapi bisnis masih menjadi penjara. Selama sistem bergantung pada Anda, Anda bukan Owner, melainkan karyawan bergaji tinggi. Temukan blueprint delegasi level elit di sini." },
+    { eyebrow: "Ketinggian yang Mematikan", title: "Di Level Anda, Kesalahan Bukan Lagi Murah", desc: "Di puncak industri, satu salah langkah bernilai triliunan. Saran konsultan teori tidak mempan. Anda butuh intelijen insider dari sesama pemain besar yang teruji." },
+    { eyebrow: "Paradoks Kekayaan", title: "Berhenti Mencari Validasi. Mulai Menguasai.", desc: "Orang kaya baru sibuk pamer barang branded. Permainan Anda sekarang adalah menguasai aset riil, monopoli pasar, dan pengaruh. Bergabunglah dengan klub pemegang kendali." }
+  ],
+  en: [
+    { eyebrow: "The Founder's Dilemma", title: "Success Isolates You", desc: "The higher your business grows, the fewer people understand. Employees ask for certainty, family asks for time. Ro33 is the only place where you are no longer leading alone." },
+    { eyebrow: "The Circle of Falsity", title: "You Are Surrounded by 'Yes Men'", desc: "They laugh not because you're funny, but because you're the boss. At Ro33, you won't find subordinates looking to flatter, but fellow Founders daring to challenge you to grow brutally." },
+    { eyebrow: "Frequency Inequality", title: "Your Old Circle Is No Longer Relevant", desc: "Your old circle is no longer relevant. You can pay for their vacations, but they cannot help your business. Upgrade your networking to the elite level that talks about acquisitions, billions in taxes, and expansion." },
+    { eyebrow: "Trust Filter", title: "One Wrong Partner = Ruin", desc: "Seeking investors or partners from the open circle is business suicide. Ro33 strictly filters its members. At our table, billions of rupiah change hands purely based on reputation and trust." },
+    { eyebrow: "Illusion of Freedom", title: "Plenty of Money, Zero Time to Enjoy It", desc: "You have a yacht, but business is still a prison. As long as the system relies on you, you are not an Owner, but a high-salaried employee. Find the elite-level delegation blueprint here." },
+    { eyebrow: "Fatal Altitude", title: "At Your Level, Mistakes Are No Longer Cheap", desc: "At the peak of the industry, one wrong move is worth trillions. The advice of textbook consultants won't cut it. You need insider intelligence from fellow major players who have been tested." },
+    { eyebrow: "Paradox of Wealth", title: "Stop Seeking Validation. Start Ruling.", desc: "The newly rich are busy showing off branded goods. Your game now is to dominate real assets, monopolize markets, and wield influence. Join the club of those in control." }
+  ]
+};
+
+const translations = {
+  id: {
+    'hero-title': 'Bukan untuk<br><em>semua orang.</em>',
+    'hero-tagline': 'Sebuah lingkaran kecil bagi mereka yang membangun, memimpin, dan terus bertumbuh.',
+    'hero-desc': 'Di sini, founder bertemu founder. Bukan untuk bersaing — tapi untuk saling mengisi, menjernihkan pikiran, dan berbagi energi yang sama.',
+    'sig-eyebrow': 'Apa Itu Ro33',
+    'sig-title': 'Result Origin <em>33</em>',
+    'sig-sub': 'Awal mula dari sebuah hasil — adalah kita.',
+    'sig-body-1': 'Ro33 bukan forum motivasi. Bukan juga seminar nasihat. Ini adalah ruang <strong>sharing</strong> dan <strong>cleansing mind & energy</strong> antar founder dan pemimpin yang percaya satu hal sederhana: <strong>hasil tidak datang dari luar</strong>. Hasil lahir dari diri yang jernih, dari titik nol, dari <em>origin</em>-nya sendiri.',
+    'sig-body-2': 'Tidak perlu banyak teori. Yang kami bukukan di sini adalah teori yang lahir dari praktek — yang sudah <strong>langsung berhasil</strong> di lapangan. Tanpa basa-basi, tanpa filter akademis, tanpa janji manis.',
+    'sig-p1-text': 'Berbagi praktek nyata, bukan ceramah teori.',
+    'sig-p2-text': 'Menjernihkan pikiran dan energi yang menumpuk.',
+    'sig-p3-text': 'Fokus pada hasil yang dapat diukur dan diulang.',
+    'sig-p4-text': 'Bukukan dari praktek, bukan dari buku teks.',
+    'sig-meaning-label': 'Asal Muasal Angka 33',
+    'sig-meaning-desc': 'Angka <strong>33</strong> bukan dipilih sembarang. Ia lahir dari posisi dua huruf <strong>R</strong> dan <strong>O</strong> dalam urutan alfabet — dijumlahkan menghasilkan angka master.',
+    'sig-m-r-text': '<strong>Huruf ke-18</strong> dalam alfabet. Mewakili <strong>Result</strong> — hasil nyata sebagai pondasi setiap pertemuan, percakapan, dan energi yang dilepaskan.',
+    'sig-m-o-text': '<strong>Huruf ke-15</strong> dalam alfabet. Mewakili <strong>Origin</strong> — sumber, asal mula, titik nol. Karena hasil sejati selalu lahir dari diri yang jernih, bukan dari kebisingan luar.',
+    'sig-m-num-desc': 'Dalam numerologi, <strong>33</strong> adalah <strong>Master Number</strong> tertinggi — disebut juga <em>"Master Teacher"</em>. Angka langka yang melambangkan komunitas guru, penyembuh, dan pelayan yang fokus pada pertumbuhan sesama. Bukan kebetulan Ro<strong>33</strong> berdiri di angka ini.',
+    'sig-b-1': 'Rp 0 Untuk Bergabung*',
+    'sig-b-2': 'Praktek > Teori',
+    'sig-b-3': 'Tanpa Basa-Basi',
+    'sig-b-footnote': '*Untuk saat ini. Tidak ada biaya keanggotaan, tidak ada paket, tidak ada upsell.',
+    'card-sec-eyebrow': 'Dilema Eksekutif',
+    'card-sec-title': 'Kesepian di Puncak.<br><em>Ilusi Kebebasan.</em>',
+    'card-sec-desc': 'Banyak yang menginginkan posisi Anda, tapi sangat sedikit yang sanggup menanggung bebannya. Ro33 hadir untuk menyelesaikan masalah yang tidak bisa Anda diskusikan dengan karyawan maupun keluarga.',
+    'about-sec-title': 'Bukan sekadar<br><em>pertemuan biasa.</em>',
+    'about-sec-desc': 'Dalam perjalanan saya mendampingi para founder dan entrepreneur, satu hal selalu berulang: beban pikiran yang menumpuk bukan karena kurang ilmu — tapi karena energi yang tidak seimbang.<br><br>Ro33 hadir sebagai ruang untuk menjernihkan itu semua. Melalui meditasi bersama, olahraga, diskusi terbuka, dan percakapan yang tidak bisa terjadi di forum biasa — kita bertemu sebagai sesama pembangun. Tanpa agenda tersembunyi. Tanpa biaya. Hanya di kafe, di Jakarta Barat.',
+    'location-badge': `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.7"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> Khusus Area Jakarta Barat &nbsp;·&nbsp; 0 Biaya`,
+    'video-sec-eyebrow': 'Bukti Nyata',
+    'video-sec-title': 'Mereka yang telah<br><em>bertransformasi.</em>',
+    'p-sec-eyebrow': 'Apa yang kita lakukan',
+    'p-sec-title': 'Cara kita<br><em>terhubung.</em>',
+    'p1-title': 'Meditasi & Energi',
+    'p1-desc': 'Menetralkan chakra, chi, dan yin yang. Menjernihkan pikiran agar keputusan lahir dari kejernihan, bukan tekanan.',
+    'p2-title': 'Diskusi Terbuka',
+    'p2-desc': 'Sharing kisah nyata dari founder ke founder. Bukan ceramah, bukan seminar — percakapan yang jujur dan saling memberi nilai.',
+    'p3-title': 'Olahraga Bersama',
+    'p3-desc': 'Tubuh yang bergerak membuka pikiran. Sesi ringan bersama untuk menjaga keseimbangan fisik dan mental sebagai pemimpin.',
+    'p4-title': 'Ngobrol Santai',
+    'p4-desc': 'Di kafe, tanpa agenda berat. Terkadang percakapan paling berharga lahir tanpa presentasi dan slide deck.',
+    'f-sec-eyebrow': 'Seleksi Alami',
+    'f-sec-title': 'Untuk siapa<br><em>Ro33 ini.</em>',
+    'f-sec-desc': 'Lingkaran ini kecil dengan sengaja. Bukan eksklusif karena gengsi — tapi karena nilai hanya tercipta ketika setiap orang di ruangan membawa sesuatu yang bisa diisi dan mengisi.',
+    'f-col1-label': 'Cocok untuk Anda',
+    'f-col2-label': 'Mungkin belum saatnya',
+    'f-li-yes-1': 'Founder atau co-founder yang aktif menjalankan bisnis',
+    'f-li-yes-2': 'Entrepreneur yang ingin berbagi, bukan hanya menerima',
+    'f-li-yes-3': 'Pemimpin yang terbuka pada energi, meditasi, dan keseimbangan hidup',
+    'f-li-yes-4': 'Mereka yang mencari teman perjalanan, bukan mentor berbayar',
+    'f-li-yes-5': 'Tertarik pada hubungan energi dan pengembangan diri secara holistik',
+    'f-li-no-1': 'Belum memiliki tanggung jawab bisnis yang nyata untuk dibawa ke meja',
+    'f-li-no-2': 'Mencari mentor atau coach dengan formula instan',
+    'f-li-no-3': 'Tidak nyaman dengan pendekatan energi dan bawah sadar',
+    'f-li-no-4': 'Hanya ingin networking transaksional',
+    'form-sec-eyebrow': 'Bergabung',
+    'form-sec-title': 'Isi form,<br><em>kita bertemu.</em>',
+    'form-sec-desc': 'Tidak ada seleksi yang rumit. Isi form dengan jujur — dan kita lihat apakah ini memang pertemuan yang tepat.',
+    'form-l-nama': 'Nama Lengkap',
+    'form-l-status': 'Status',
+    'form-l-company': 'Nama Company',
+    'form-l-bidang': 'Bidang Usaha',
+    'form-l-domisili': 'Domisili',
+    'form-l-wa': 'No. WhatsApp',
+    'form-l-email': 'Email',
+    'form-l-tujuan': 'Tujuan Meet-up',
+    'form-submit': 'Daftarkan Diri &nbsp;→',
+    'form-success-title': 'Terima kasih.',
+    'form-success-msg': 'Kami sudah menerima informasi Anda.<br>Jika cocok, kami akan menghubungi Anda melalui WhatsApp untuk detail pertemuan.<br><br>Sampai jumpa di Jakarta Barat.',
+    'closing-quote': '"Bukan tentang siapa yang paling besar — tapi siapa yang paling mau mengisi dan diisi."',
+    'closing-attr': 'El Reyzandra &nbsp;·&nbsp; eL Vision Group',
+    'ph-name': 'Nama Anda',
+    'ph-company': 'Nama perusahaan Anda',
+    'ph-bidang': 'misal: Teknologi, F&B, Properti...',
+    'ph-domisili': 'Kota / Area Anda',
+    'ph-wa': '+62...',
+    'ph-email': 'email@company.com',
+    'ph-tujuan': 'Apa yang ingin Anda bawa ke pertemuan ini? Ceritakan singkat...'
+  },
+  en: {
+    'hero-title': 'Not for<br><em>everyone.</em>',
+    'hero-tagline': 'A small circle for those who build, lead, and continue to grow.',
+    'hero-desc': 'Here, founders meet founders. Not to compete — but to complete each other, clear minds, and share the same energy.',
+    'sig-eyebrow': 'What Is Ro33',
+    'sig-title': 'Result Origin <em>33</em>',
+    'sig-sub': 'The origin of a result — is us.',
+    'sig-body-1': 'Ro33 is not a motivational forum. Nor is it an advice seminar. It is a space for <strong>sharing</strong> and <strong>cleansing mind & energy</strong> among founders and leaders who believe in one simple thing: <strong>results do not come from the outside</strong>. Results are born from a clear self, from point zero, from its own <em>origin</em>.',
+    'sig-body-2': 'No need for much theory. What we document here is theory born from practice — that has <strong>directly succeeded</strong> on the ground. Without small talk, without academic filters, without sweet promises.',
+    'sig-p1-text': 'Share real practice, not theoretical lectures.',
+    'sig-p2-text': 'Clear up cluttered thoughts and energy.',
+    'sig-p3-text': 'Focus on results that can be measured and repeated.',
+    'sig-p4-text': 'Documented from practice, not text books.',
+    'sig-meaning-label': 'The Origin of the Number 33',
+    'sig-meaning-desc': 'The number <strong>33</strong> was not chosen by accident. It is born from the position of the two letters <strong>R</strong> and <strong>O</strong> in alphabetical order — summed up to produce a master number.',
+    'sig-m-r-text': '<strong>18th letter</strong> in the alphabet. Represents <strong>Result</strong> — tangible results as the foundation of every meeting, conversation, and energy released.',
+    'sig-m-o-text': '<strong>15th letter</strong> in the alphabet. Represents <strong>Origin</strong> — source, origin, point zero. Because true results are always born from a clear self, not from outside noise.',
+    'sig-m-num-desc': 'In numerology, <strong>33</strong> is the highest <strong>Master Number</strong> — also called the <em>"Master Teacher"</em>. A rare number symbolizing a community of teachers, healers, and servants focusing on the growth of others. It is no coincidence Ro<strong>33</strong> stands on this number.',
+    'sig-b-1': 'Rp 0 To Join*',
+    'sig-b-2': 'Practice > Theory',
+    'sig-b-3': 'No Small Talk',
+    'sig-b-footnote': '*For now. No membership fees, no packages, no upsells.',
+    'card-sec-eyebrow': 'Executive Dilemma',
+    'card-sec-title': 'Loneliness at the top.<br><em>The Illusion of Freedom.</em>',
+    'card-sec-desc': 'Many want your position, but very few can bear the weight. Ro33 is here to solve the problems you cannot discuss with employees or family.',
+    'about-sec-title': 'Not just a<br><em>regular meeting.</em>',
+    'about-sec-desc': 'In my journey of supporting founders and entrepreneurs, one thing always repeats: the burden of the mind builds up not from lack of knowledge — but from unbalanced energy.<br><br>Ro33 exists as a space to clear it all. Through group meditation, exercise, open discussions, and conversations that cannot happen in regular forums — we meet as fellow builders. Without hidden agendas. Free of charge. Simply in a cafe, in West Jakarta.',
+    'location-badge': `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.7"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> West Jakarta Area Only &nbsp;·&nbsp; 0 Fees`,
+    'video-sec-eyebrow': 'Real Evidence',
+    'video-sec-title': 'Those who have<br><em>transformed.</em>',
+    'p-sec-eyebrow': 'What we do',
+    'p-sec-title': 'How we<br><em>connect.</em>',
+    'p1-title': 'Meditation & Energy',
+    'p1-desc': 'Neutralizing chakras, chi, and yin yang. Clearing the mind so decisions are born out of clarity, not pressure.',
+    'p2-title': 'Open Discussion',
+    'p2-desc': 'Sharing real stories from founder to founder. Not lectures, not seminars — conversations that are honest and mutually rewarding.',
+    'p3-title': 'Exercise Together',
+    'p3-desc': 'A moving body opens the mind. Light sessions together to maintain physical and mental balance as leaders.',
+    'p4-title': 'Casual Chat',
+    'p4-desc': 'At the cafe, without a heavy agenda. Sometimes the most valuable conversations are born without presentations and slide decks.',
+    'f-sec-eyebrow': 'Natural Selection',
+    'f-sec-title': 'Who is<br><em>Ro33 for.</em>',
+    'f-sec-desc': 'This circle is small on purpose. Not exclusive out of prestige — but because value is only created when everyone in the room brings something to be filled and to fill.',
+    'f-col1-label': 'Fits you perfectly',
+    'f-col2-label': 'Maybe not the right time',
+    'f-li-yes-1': 'Founder or co-founder actively running a business',
+    'f-li-yes-2': 'Entrepreneur who wants to share, not just receive',
+    'f-li-yes-3': 'Leader open to energy, meditation, and life balance',
+    'f-li-yes-4': 'Those looking for travel companions, not paid mentors',
+    'f-li-yes-5': 'Interested in energy relationships and holistic self-development',
+    'f-li-no-1': 'Have not yet held real business responsibilities to bring to the table',
+    'f-li-no-2': 'Looking for a mentor or coach with an instant formula',
+    'f-li-no-3': 'Not comfortable with energy and subconscious mind approaches',
+    'f-li-no-4': 'Just want transactional networking',
+    'form-sec-eyebrow': 'Join us',
+    'form-sec-title': 'Fill the form,<br><em>let us meet.</em>',
+    'form-sec-desc': 'No complicated selection. Fill out the form honestly — and we will see if this is indeed the right meeting.',
+    'form-l-nama': 'Full Name',
+    'form-l-status': 'Status',
+    'form-l-company': 'Company Name',
+    'form-l-bidang': 'Field of Business',
+    'form-l-domisili': 'Domicile',
+    'form-l-wa': 'WhatsApp Number',
+    'form-l-email': 'Email',
+    'form-l-tujuan': 'Meeting Purpose',
+    'form-submit': 'Register &nbsp;→',
+    'form-success-title': 'Thank you.',
+    'form-success-msg': 'We have received your information.<br>If suitable, we will contact you via WhatsApp for meeting details.<br><br>See you in West Jakarta.',
+    'closing-quote': '"It is not about who is the biggest — but who is most willing to fill and be filled."',
+    'closing-attr': 'El Reyzandra &nbsp;·&nbsp; eL Vision Group',
+    'ph-name': 'Your Name',
+    'ph-company': 'Your company name',
+    'ph-bidang': 'e.g., Tech, F&B, Real Estate...',
+    'ph-domisili': 'Your City / Area',
+    'ph-wa': '+62...',
+    'ph-email': 'email@company.com',
+    'ph-tujuan': 'What do you want to bring to the meeting? Tell us briefly...'
+  }
+};
+
+function setLanguage(lang) {
+  document.documentElement.setAttribute('data-lang', lang);
+  document.getElementById('lang-id-btn').classList.toggle('active', lang === 'id');
+  document.getElementById('lang-en-btn').classList.toggle('active', lang === 'en');
+
+  // Hero section
+  document.querySelector('.hero h1').innerHTML = translations[lang]['hero-title'];
+  document.querySelector('.hero-tagline').innerHTML = translations[lang]['hero-tagline'];
+  document.querySelector('.hero-desc').innerHTML = translations[lang]['hero-desc'];
+
+  // Signature Section
+  document.querySelector('.signature-eyebrow').innerHTML = translations[lang]['sig-eyebrow'];
+  document.querySelector('.signature-title').innerHTML = translations[lang]['sig-title'];
+  document.querySelector('.signature-sub').innerHTML = translations[lang]['sig-sub'];
+  
+  const sigBodies = document.querySelectorAll('.signature-body');
+  if (sigBodies.length >= 3) {
+    sigBodies[0].innerHTML = translations[lang]['sig-body-1'];
+    sigBodies[1].innerHTML = translations[lang]['sig-body-2'];
+    sigBodies[2].innerHTML = translations[lang]['sig-meaning-desc'];
+    if (sigBodies[3]) sigBodies[3].innerHTML = translations[lang]['sig-m-num-desc'];
+  }
+
+  const sigPillars = document.querySelectorAll('.signature-pillar-text');
+  if (sigPillars.length >= 4) {
+    sigPillars[0].innerHTML = translations[lang]['sig-p1-text'];
+    sigPillars[1].innerHTML = translations[lang]['sig-p2-text'];
+    sigPillars[2].innerHTML = translations[lang]['sig-p3-text'];
+    sigPillars[3].innerHTML = translations[lang]['sig-p4-text'];
+  }
+
+  document.querySelector('.signature-meaning-label').innerHTML = translations[lang]['sig-meaning-label'];
+  
+  const meaningTexts = document.querySelectorAll('.meaning-text');
+  if (meaningTexts.length >= 2) {
+    meaningTexts[0].innerHTML = translations[lang]['sig-m-r-text'];
+    meaningTexts[1].innerHTML = translations[lang]['sig-m-o-text'];
+  }
+
+  const sigBadges = document.querySelectorAll('.signature-badge');
+  if (sigBadges.length >= 3) {
+    sigBadges[0].innerHTML = translations[lang]['sig-b-1'];
+    sigBadges[1].innerHTML = translations[lang]['sig-b-2'];
+    sigBadges[2].innerHTML = translations[lang]['sig-b-3'];
+  }
+
+  document.querySelector('.signature-card + p').innerHTML = translations[lang]['sig-b-footnote'];
+
+  // Executive Dilemma
+  const cardSec = document.querySelector('.card-section');
+  if (cardSec) {
+    cardSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['card-sec-eyebrow'];
+    cardSec.querySelector('.section-title').innerHTML = translations[lang]['card-sec-title'];
+    cardSec.querySelector('.section-body').innerHTML = translations[lang]['card-sec-desc'];
+  }
+
+  const dilemmaCards = document.querySelectorAll('.card');
+  dilemmaCards.forEach((card, i) => {
+    if (dilemmaTranslations[lang][i]) {
+      card.querySelector('.card-eyebrow').innerHTML = dilemmaTranslations[lang][i].eyebrow;
+      card.querySelector('.card-title').innerHTML = dilemmaTranslations[lang][i].title;
+      card.querySelector('.card-desc').innerHTML = dilemmaTranslations[lang][i].desc;
+    }
+  });
+
+  // About Ro33
+  const aboutSec = document.querySelectorAll('section')[1];
+  if (aboutSec) {
+    aboutSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['sig-eyebrow'];
+    aboutSec.querySelector('.section-title').innerHTML = translations[lang]['about-sec-title'];
+    aboutSec.querySelector('.section-body').innerHTML = translations[lang]['about-sec-desc'];
+    aboutSec.querySelector('.location-badge').innerHTML = translations[lang]['location-badge'];
+  }
+
+  // Real Evidence
+  const videoSec = document.querySelector('.video-section');
+  if (videoSec) {
+    videoSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['video-sec-eyebrow'];
+    videoSec.querySelector('.section-title').innerHTML = translations[lang]['video-sec-title'];
+  }
+
+  // Render testimonies using translated labels
+  renderTestimonies(lang);
+
+  // What we do
+  const weDoSec = document.querySelectorAll('section')[3];
+  if (weDoSec) {
+    weDoSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['p-sec-eyebrow'];
+    weDoSec.querySelector('.section-title').innerHTML = translations[lang]['p-sec-title'];
+    
+    const pillars = weDoSec.querySelectorAll('.pillar');
+    pillars.forEach((p, i) => {
+      p.querySelector('.pillar-title').innerHTML = translations[lang][`p${i+1}-title`];
+      p.querySelector('.pillar-desc').innerHTML = translations[lang][`p${i+1}-desc`];
+    });
+  }
+
+  // Selection
+  const selectSec = document.querySelectorAll('section')[4];
+  if (selectSec) {
+    selectSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['f-sec-eyebrow'];
+    selectSec.querySelector('.section-title').innerHTML = translations[lang]['f-sec-title'];
+    selectSec.querySelector('.section-body').innerHTML = translations[lang]['f-sec-desc'];
+    
+    const fitLabels = selectSec.querySelectorAll('.fit-label');
+    fitLabels[0].innerHTML = translations[lang]['f-col1-label'];
+    fitLabels[1].innerHTML = translations[lang]['f-col2-label'];
+
+    const fitLists = selectSec.querySelectorAll('.fit-list');
+    const listYes = fitLists[0].querySelectorAll('li');
+    listYes.forEach((li, i) => {
+      li.innerHTML = translations[lang][`f-li-yes-${i+1}`];
+    });
+    const listNo = fitLists[1].querySelectorAll('li');
+    listNo.forEach((li, i) => {
+      li.innerHTML = translations[lang][`f-li-no-${i+1}`];
+    });
+  }
+
+  // Form Section
+  const formSec = document.querySelectorAll('section')[5];
+  if (formSec) {
+    formSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['form-sec-eyebrow'];
+    formSec.querySelector('.section-title').innerHTML = translations[lang]['form-sec-title'];
+    formSec.querySelector('.section-body').innerHTML = translations[lang]['form-sec-desc'];
+    
+    const labels = formSec.querySelectorAll('.form-group label');
+    labels.forEach((lbl, i) => {
+      const inp = lbl.parentNode.querySelector('input, select, textarea');
+      if (inp) {
+        lbl.innerHTML = translations[lang][`form-l-${inp.id.replace('f-', '')}`];
+      }
+    });
+
+    const placeholders = [
+      translations[lang]['ph-name'],
+      '',
+      translations[lang]['ph-company'],
+      translations[lang]['ph-bidang'],
+      translations[lang]['ph-domisili'],
+      translations[lang]['ph-wa'],
+      translations[lang]['ph-email'],
+      translations[lang]['ph-tujuan']
+    ];
+
+    const inputs = formSec.querySelectorAll('input, select, textarea');
+    inputs.forEach((input, i) => {
+      if (placeholders[i]) input.placeholder = placeholders[i];
+    });
+
+    formSec.querySelector('.form-submit').innerHTML = translations[lang]['form-submit'];
+    formSec.querySelector('.form-success-title').innerHTML = translations[lang]['form-success-title'];
+    formSec.querySelector('.form-success-msg').innerHTML = translations[lang]['form-success-msg'];
+  }
+
+  // Footer
+  document.querySelector('.closing-quote').innerHTML = translations[lang]['closing-quote'];
+  document.querySelector('.closing-attr').innerHTML = translations[lang]['closing-attr'];
 }
 
 async function handleSubmit() {
@@ -947,72 +1665,14 @@ async function handleSubmit() {
   }
 }
 
-/* VIDEO TESTIMONY DATA & LOGIC */
-const testimonies = [
-  {
-    name: "Arif",
-    role: "Penyintas Kanker Stage 4",
-    desc: "Melawan diagnosis terminal melalui rekalibrasi frekuensi tubuh.",
-    src: "assets/testimony/arif_interview_indo_comp.mp4",
-    poster: "assets/testimony/arif_interview_indo.jpg"
-  },
-  {
-    name: "Arif",
-    role: "Cellular Recovery",
-    desc: "Rahasia pemulihan seluler dan penyelarasan identitas diri.",
-    src: "assets/testimony/arifindo_comp.mp4",
-    poster: "assets/testimony/arifindo.jpeg"
-  },
-  {
-    name: "Habib Umar Assegaf",
-    role: "Ustadz / Spiritual",
-    desc: "Elevasi spiritual dan kejernihan mental dalam pengabdian.",
-    src: "assets/testimony/habib.mp4",
-    poster: "assets/testimony/habib.jpg"
-  },
-  {
-    name: "Pak Agus SH., MH.",
-    role: "Kepala Intelijen",
-    desc: "Keseimbangan batin bagi mereka dengan tanggung jawab tinggi.",
-    src: "assets/testimony/agus.mp4",
-    poster: "assets/testimony/agus.jpg"
-  },
-  {
-    name: "Dr. Gumilar",
-    role: "Hypnotherapist",
-    desc: "Perspektif medis mengenai kekuatan pikiran dalam pemulihan.",
-    src: "assets/testimony/gumilar.mp4",
-    poster: "assets/testimony/gumilar.jpg"
-  },
-  {
-    name: "eL Vision – Magnet",
-    role: "Problem Solver",
-    desc: "Berhenti mengelola masalah, mulai menyelesaikannya dari akar.",
-    src: "assets/testimony/magnet.mp4",
-    poster: "assets/testimony/magnet.jpg"
-  },
-  {
-    name: "Lena",
-    role: "Entrepreneur",
-    desc: "Berpindah dari mentalitas kekurangan menuju kelimpahan nyata.",
-    src: "assets/testimony/lena.mp4",
-    poster: "assets/testimony/lena.jpg"
-  },
-  {
-    name: "Gen Z",
-    role: "Modern Lifestyle",
-    desc: "Mental edge yang dibutuhkan untuk navigasi dunia modern.",
-    src: "assets/testimony/gen_z.mp4",
-    poster: "assets/testimony/gen_z.jpg"
-  }
-];
-
-function renderTestimonies() {
+function renderTestimonies(lang = 'id') {
   const grid = document.getElementById('testimony-grid');
-  grid.innerHTML = testimonies.map((t, i) => `
+  if (!grid) return;
+  const list = testimoniesDict[lang] || testimoniesDict['id'];
+  grid.innerHTML = list.map((t, i) => `
     <div class="video-card">
       <div class="video-wrap" onclick="handleVideoClick(this, ${i})">
-        <video id="vid-${i}" src="${t.src}" poster="${t.poster}" playsinline preload="metadata"></video>
+        <video id="vid-${i}" src="${testimonies[i].src}" poster="${testimonies[i].poster}" playsinline preload="metadata"></video>
         <div class="video-overlay" id="overlay-${i}">
           <div class="play-btn-circle">
             <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -1053,7 +1713,9 @@ function handleVideoClick(el, index) {
   }
 }
 
-document.addEventListener('DOMContentLoaded', renderTestimonies);
+document.addEventListener('DOMContentLoaded', () => {
+  renderTestimonies('id');
+});
 </script>
 </body>
 </html>
