@@ -805,7 +805,7 @@
     font-size: 0.9rem;
     padding: 0.4rem 0.6rem;
     border-radius: 2px;
-    opacity: 0.4;
+    opacity: 1;
     transition: opacity 0.2s, transform 0.2s, background 0.2s;
     color: var(--text);
     display: flex;
@@ -814,12 +814,6 @@
   }
   .lang-btn:hover {
     opacity: 0.8;
-  }
-  .lang-btn.active {
-    opacity: 1;
-    background: var(--bg-3);
-    border-color: var(--gold);
-    color: var(--gold-light);
   }
 </style>
 </head>
@@ -833,8 +827,7 @@
   <div class="nav-right">
     <span class="nav-brand">eL Vision Group</span>
     <div class="lang-switch">
-      <button class="lang-btn active" id="lang-id-btn" onclick="setLanguage('id')">🇮🇩</button>
-      <button class="lang-btn" id="lang-en-btn" onclick="setLanguage('en')">🇬🇧</button>
+      <button class="lang-btn" id="lang-toggle-btn" onclick="toggleLanguage()"></button>
     </div>
     <button class="theme-toggle" onclick="toggleTheme()">
       <span class="toggle-icon" id="toggle-icon">☀</span>
@@ -1451,10 +1444,30 @@ const translations = {
   }
 };
 
+function toggleLanguage() {
+  const currentLang = document.documentElement.getAttribute('data-lang') || 'id';
+  const nextLang = currentLang === 'id' ? 'en' : 'id';
+  setLanguage(nextLang);
+}
+
 function setLanguage(lang) {
   document.documentElement.setAttribute('data-lang', lang);
-  document.getElementById('lang-id-btn').classList.toggle('active', lang === 'id');
-  document.getElementById('lang-en-btn').classList.toggle('active', lang === 'en');
+  const langBtn = document.getElementById('lang-toggle-btn');
+  if (langBtn) {
+    if (lang === 'id') {
+      langBtn.innerHTML = '🇬🇧 EN';
+    } else {
+      langBtn.innerHTML = '🇮🇩 ID';
+    }
+  }
+
+  const url = new URL(window.location);
+  if (lang === 'en') {
+    url.searchParams.set('en', '');
+  } else {
+    url.searchParams.delete('en');
+  }
+  window.history.replaceState({}, '', url);
 
   // Hero section
   document.querySelector('.hero h1').innerHTML = translations[lang]['hero-title'];
@@ -1736,8 +1749,12 @@ function handleVideoClick(el, index) {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  renderTestimonies('id');
-});
-</script>
+  const params = new URLSearchParams(window.location.search);
+  if (params.has('en')) {
+    setLanguage('en');
+  } else {
+    setLanguage('id');
+  }
+});</script>
 </body>
 </html>
