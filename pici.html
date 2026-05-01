@@ -521,6 +521,73 @@
     .video-role { font-size: 9px; }
     .video-desc { display: none; }
   }
+
+  /* CARD GRID FOR PAIN POINTS */
+  .card-section {
+    padding: 6rem 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    margin-top: 3rem;
+  }
+  .card {
+    background: var(--bg-2);
+    display: flex;
+    flex-direction: column;
+    transition: background 0.3s;
+  }
+  .card-img-wrap {
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    position: relative;
+    border-bottom: 0.5px solid var(--border);
+  }
+  .card-img-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+    filter: brightness(0.9);
+  }
+  .card:hover .card-img-wrap img {
+    transform: scale(1.05);
+    filter: brightness(1);
+  }
+  .card-content {
+    padding: 2.5rem 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  .card-eyebrow {
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .card-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: var(--text);
+    margin-bottom: 1.2rem;
+    line-height: 1.3;
+  }
+  .card-desc {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    line-height: 1.8;
+  }
+  @media (max-width: 600px) {
+    .card-grid { grid-template-columns: 1fr; }
+    .card-content { padding: 1.75rem 1.5rem; }
+  }
 </style>
 </head>
 <body>
@@ -547,6 +614,80 @@
   <p class="hero-desc">Di sini, founder bertemu founder. Bukan untuk bersaing — tapi untuk saling mengisi, menjernihkan pikiran, dan berbagi energi yang sama.</p>
   <p class="scroll-hint">Scroll</p>
 </div>
+
+<div class="sep"></div>
+
+<section class="card-section">
+  <p class="section-eyebrow">Dilema Eksekutif</p>
+  <h2 class="section-title">Kesepian di Puncak.<br><em>Ilusi Kebebasan.</em></h2>
+  <p class="section-body">Banyak yang menginginkan posisi Anda, tapi sangat sedikit yang sanggup menanggung bebannya. PICI hadir untuk menyelesaikan masalah yang tidak bisa Anda diskusikan dengan karyawan maupun keluarga.</p>
+  
+  <div class="card-grid">
+    <!-- Ad 1 -->
+    <div class="card">
+      <div class="card-img-wrap"><img src="assets/image/pici_founder_isolation_1777609557739.png" alt="Founder Isolation"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">The Founder's Dilemma</p>
+        <h3 class="card-title">Kesuksesan Mengisolasi Anda</h3>
+        <p class="card-desc">Semakin tinggi bisnis Anda, semakin sedikit orang yang mengerti. Karyawan meminta kepastian, keluarga meminta waktu. PICI adalah satu-satunya tempat di mana Anda tidak lagi memimpin sendirian.</p>
+      </div>
+    </div>
+    <!-- Ad 2 -->
+    <div class="card">
+      <div class="card-img-wrap"><img src="assets/image/pici_restaurant_yesmen_1777609660345.png" alt="Yes Men"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">Lingkaran Kepalsuan</p>
+        <h3 class="card-title">Anda Dikelilingi 'Yes Men'</h3>
+        <p class="card-desc">Mereka tertawa bukan karena Anda lucu, tapi karena Anda bosnya. Di PICI, Anda tidak akan menemukan bawahan yang mencari muka, melainkan sesama Founder yang berani menantang Anda untuk tumbuh lebih brutal.</p>
+      </div>
+    </div>
+    <!-- Ad 3 -->
+    <div class="card">
+      <div class="card-img-wrap"><img src="assets/image/pici_pool_network_1777609710488.png" alt="Network"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">Ketimpangan Frekuensi</p>
+        <h3 class="card-title">Lingkaran Lama Anda Tidak Relevan</h3>
+        <p class="card-desc">Anda bisa membayari liburan mereka, tapi mereka tidak bisa membantu bisnis Anda. Upgrade networking Anda ke level elit yang membicarakan akuisisi, pajak miliaran, dan ekspansi.</p>
+      </div>
+    </div>
+    <!-- Ad 4 -->
+    <div class="card">
+      <div class="card-img-wrap"><img src="assets/image/pici_garden_trust_1777609791967.png" alt="Trust"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">Filter Kepercayaan</p>
+        <h3 class="card-title">Satu Partner Salah = Hancur</h3>
+        <p class="card-desc">Mencari investor atau partner dari lingkaran terbuka adalah bunuh diri bisnis. PICI memfilter anggotanya secara ketat. Di meja kami, miliaran rupiah berpindah tangan murni berbasis reputasi dan kepercayaan.</p>
+      </div>
+    </div>
+    <!-- Ad 5 -->
+    <div class="card">
+      <div class="card-img-wrap"><img src="assets/image/pici_yacht_freedom_1777610102149.png" alt="Freedom"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">Ilusi Kebebasan</p>
+        <h3 class="card-title">Uang Banyak, Waktu Menikmatinya Nol</h3>
+        <p class="card-desc">Anda punya kapal pesiar, tapi bisnis masih menjadi penjara. Selama sistem bergantung pada Anda, Anda bukan Owner, melainkan karyawan bergaji tinggi. Temukan blueprint delegasi level elit di sini.</p>
+      </div>
+    </div>
+    <!-- Ad 6 -->
+    <div class="card">
+      <div class="card-img-wrap"><img src="assets/image/pici_heli_mountain_1777610118008.png" alt="Altitude"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">Ketinggian yang Mematikan</p>
+        <h3 class="card-title">Di Level Anda, Kesalahan Bukan Lagi Murah</h3>
+        <p class="card-desc">Di puncak industri, satu salah langkah bernilai triliunan. Saran konsultan teori tidak mempan. Anda butuh intelijen <em>insider</em> dari sesama pemain besar yang teruji.</p>
+      </div>
+    </div>
+    <!-- Ad 7 -->
+    <div class="card">
+      <div class="card-img-wrap"><img src="assets/image/pici_rooftop_mall_1777610141079.png" alt="Paradox"></div>
+      <div class="card-content">
+        <p class="card-eyebrow">Paradoks Kekayaan</p>
+        <h3 class="card-title">Berhenti Mencari Validasi. Mulai Menguasai.</h3>
+        <p class="card-desc">Orang kaya baru sibuk pamer barang branded. Permainan Anda sekarang adalah menguasai aset riil, monopoli pasar, dan pengaruh. Bergabunglah dengan klub pemegang kendali.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <div class="sep"></div>
 
