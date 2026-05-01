@@ -1135,6 +1135,17 @@
           <input type="email" placeholder="email@company.com" id="f-email">
         </div>
         <div class="form-group full">
+          <label>Skala Bisnis (opsional)</label>
+          <select id="f-skala">
+            <option value="" selected disabled>Pilih Skala Bisnis (opsional)</option>
+            <option>Early Stage (< Rp 1 M / tahun)</option>
+            <option>Growth Stage (Rp 1 - 10 M / tahun)</option>
+            <option>Established (Rp 10 - 100 M / tahun)</option>
+            <option>Enterprise (> Rp 100 M / tahun)</option>
+            <option>Lebih nyaman ceritakan langsung</option>
+          </select>
+        </div>
+        <div class="form-group full">
           <label>Tujuan Meet-up</label>
           <textarea id="f-tujuan" placeholder="Apa yang ingin Anda bawa ke pertemuan ini? Ceritakan singkat..."></textarea>
         </div>
@@ -1336,6 +1347,7 @@ const translations = {
     'form-l-domisili': 'Domisili',
     'form-l-wa': 'No. WhatsApp',
     'form-l-email': 'Email',
+    'form-l-skala': 'Skala Bisnis (opsional)',
     'form-l-tujuan': 'Tujuan Meet-up',
     'form-submit': 'Daftarkan Diri &nbsp;→',
     'form-success-title': 'Terima kasih.',
@@ -1414,6 +1426,7 @@ const translations = {
     'form-l-domisili': 'Domicile',
     'form-l-wa': 'WhatsApp Number',
     'form-l-email': 'Email',
+    'form-l-skala': 'Business Scale (optional)',
     'form-l-tujuan': 'Meeting Purpose',
     'form-submit': 'Register &nbsp;→',
     'form-success-title': 'Thank you.',
@@ -1620,7 +1633,8 @@ async function handleSubmit() {
     domisili: document.getElementById('f-domisili').value.trim(),
     whatsapp: document.getElementById('f-wa').value.trim(),
     email: document.getElementById('f-email').value.trim(),
-    tujuan_meetup: document.getElementById('f-tujuan').value.trim()
+    tujuan_meetup: document.getElementById('f-tujuan').value.trim(),
+    skala_bisnis: document.getElementById('f-skala').value
   };
 
   try {
