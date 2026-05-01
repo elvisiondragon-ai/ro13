@@ -543,7 +543,7 @@
     transition: background 0.3s;
   }
   .card-img-wrap {
-    aspect-ratio: 4/3;
+    aspect-ratio: 1/1;
     overflow: hidden;
     position: relative;
     border-bottom: 0.5px solid var(--border);
@@ -1024,6 +1024,7 @@ function handleVideoClick(el, index) {
   }
   
   if (vid.paused) {
+    vid.muted = false;
     vid.play();
     overlay.style.display = 'none';
     vid.controls = true;
