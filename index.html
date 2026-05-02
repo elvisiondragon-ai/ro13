@@ -1794,7 +1794,6 @@ async function handleSubmit() {
           eventId: eventIdPur,
           eventSourceUrl: window.location.href,
           secretName: 'CAPI_RO33',
-          testCode: 'TEST93599',
           customData: { value: 1, currency: 'IDR' },
           userData: {
             em: data.email,
@@ -1895,7 +1894,6 @@ document.addEventListener('DOMContentLoaded', () => {
       eventId: eventIdView,
       eventSourceUrl: window.location.href,
       secretName: 'CAPI_RO33',
-      testCode: 'TEST93599',
       userData: { client_user_agent: navigator.userAgent }
     })
   }).catch(err => console.error('CAPI ViewContent Error:', err));
