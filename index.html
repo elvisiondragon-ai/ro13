@@ -1761,6 +1761,28 @@ async function handleSubmit() {
         body: JSON.stringify({ record: data })
       }).catch(e => console.error('Gagal memanggil notifikasi:', e));
 
+      // Trigger CAPI Purchase Event via Edge Function
+      const eventIdPur = 'pur_' + new Date().getTime() + '_' + Math.floor(Math.random() * 1000);
+      fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/capi-universal', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          pixelId: '3723313531141818',
+          eventName: 'Purchase',
+          eventId: eventIdPur,
+          eventSourceUrl: window.location.href,
+          secretName: 'CAPI_RO33',
+          customData: { value: 1, currency: 'IDR' },
+          userData: {
+            em: data.email,
+            ph: data.whatsapp,
+            fn: data.nama ? data.nama.split(' ')[0] : null,
+            ln: data.nama ? data.nama.split(' ').slice(1).join(' ') : null,
+            client_user_agent: navigator.userAgent
+          }
+        })
+      }).catch(err => console.error('CAPI Purchase Error:', err));
+
       document.getElementById('form-inner').style.display = 'none';
       document.getElementById('form-success').classList.add('show');
     } else {
@@ -1836,6 +1858,21 @@ document.addEventListener('DOMContentLoaded', () => {
   } else {
     setLanguage('id');
   }
+
+  // Trigger ViewContent via Edge Function CAPI
+  const eventIdView = 'view_' + new Date().getTime() + '_' + Math.floor(Math.random() * 1000);
+  fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/capi-universal', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      pixelId: '3723313531141818',
+      eventName: 'ViewContent',
+      eventId: eventIdView,
+      eventSourceUrl: window.location.href,
+      secretName: 'CAPI_RO33',
+      userData: { client_user_agent: navigator.userAgent }
+    })
+  }).catch(err => console.error('CAPI ViewContent Error:', err));
 });</script>
 </body>
 </html>
