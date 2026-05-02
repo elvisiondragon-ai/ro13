@@ -176,3 +176,178 @@ Di lingkaran *Old Money* dan *Top Founders*, kekayaan tidak diukur dari seberapa
 
 **Headline:** BERHENTI MENCARI VALIDASI. MULAI MENGUASAI.
 **Description:** PICI: Komunitas eksklusif bagi pemegang kendali aset riil.
+
+---
+
+## Ad 8 — pici_08_female_founder — SATU-SATUNYA WANITA DI MEJA ITU
+
+**Image filename:** `pici_female_founder_club.png`
+
+**Image prompt:**
+1:1 cinematic square. A high-end editorial shot of Indonesian 'Old Money' elite lifestyle. An exclusive private members' club lounge in SCBD or Menteng Jakarta, filled with around 10-12 elegantly dressed people (mostly men in their 40s-50s in tailored suits, plus a few sophisticated women) standing and chatting in small groups holding whiskey and wine glasses. The focus is on one striking Indonesian female Founder in her late 30s, wearing a quiet luxury cream silk blouse and tailored trousers, an elegant gold watch, standing slightly apart from a male-dominated group, observing with quiet authority. Rich dark mahogany wood interior, antique brass chandeliers, dark leather chairs in background. Moody warm tungsten lighting, sharp shadows. Photorealistic, shot on 35mm film style, high contrast.
+
+**Bottom overlay:**
+1. (Headline, Very Large Bold): SATU-SATUNYA WANITA DI MEJA ITU
+2. (Sub-headline, Large): ANDA SUDAH TERBIASA. TAPI BUKAN BERARTI ANDA HARUS SENDIRIAN.
+3. (Body text, Medium): Di setiap rapat investor, board meeting, atau gala bisnis—Anda sering jadi satu-satunya wanita. PICI mengumpulkan Founder & Owner wanita papan atas Indonesia agar percakapan strategis Anda tidak lagi terasa asing.
+4. (CTA, Small): PICI: Daftarkan diri Anda untuk seleksi →
+
+**Primary Text:**
+Anda sudah belajar untuk tidak peduli lagi. Anda berjabat tangan tegas, bicara langsung ke poin, dan tidak pernah meminta maaf untuk angka yang Anda perjuangkan.
+
+Tapi mari jujur sebentar: berapa banyak peer wanita selevel Anda yang benar-benar bisa memahami beban memimpin perusahaan beromset ratusan miliar—sambil tetap dianggap "ibu yang baik" oleh keluarga besar, "istri yang pantas" di acara sosial, dan "bos yang tegas" di kantor?
+
+Lingkaran bisnis Indonesia masih sangat *boys-club*. Anda bisa bertahan di sana, bahkan menang di sana. Tapi Anda butuh ruang di mana Anda tidak perlu menerjemahkan diri Anda. PICI mengumpulkan Founder & Owner wanita top-tier Indonesia—di sini, percakapan tentang akuisisi, suksesi, dan pertarungan boardroom mengalir tanpa harus Anda jelaskan dua kali.
+
+**Headline:** ANDA TIDAK PERLU MENJADI SATU-SATUNYA LAGI.
+**Description:** PICI: Lingkaran elit untuk Founder & Owner wanita Indonesia.
+
+---
+
+## Ad 9 — pici_09_exit_founder — KEMENANGAN YANG SUNYI
+
+**Image filename:** `pici_exit_founder_rooftop.png`
+
+**Image prompt:**
+1:1 cinematic square. A high-end editorial shot of Indonesian 'Old Money' elite. An exclusive rooftop bar on top of a luxury Jakarta hotel (Park Hyatt or Mandarin Oriental style) at golden hour. A crowd of around 10-12 sophisticated men and women in cocktail attire celebrating with champagne, laughing in groups against the Jakarta skyline. The focus is on one Indonesian male Founder in his early 40s in a quiet luxury navy blazer and white shirt, standing at the railing slightly apart from the celebration, holding a champagne flute, staring at the city below with a hollow, contemplative expression—victorious but lost. Warm sunset lighting bathing the scene in gold and amber, cinematic depth, soft bokeh of city lights. Photorealistic, shot on 35mm film style.
+
+**Bottom overlay:**
+1. (Headline, Very Large Bold): KEMENANGAN YANG SUNYI
+2. (Sub-headline, Large): ANDA BERHASIL EXIT. SEKARANG APA?
+3. (Body text, Medium): Setelah akuisisi atau IPO, banyak Founder kehilangan arah. Identitas Anda terikat pada bisnis yang sudah dijual. PICI adalah ekosistem para Founder pasca-exit yang sedang membangun *chapter* berikutnya.
+4. (CTA, Small): PICI: Daftarkan diri Anda untuk seleksi →
+
+**Primary Text:**
+Selama 10-15 tahun, Anda bangun pagi dengan satu pertanyaan: "Bagaimana cara membesarkan bisnis ini?" Setiap keputusan, setiap kemenangan, setiap kekalahan—semua punya arti.
+
+Lalu deal akuisisi itu tutup. Rekening Anda menerima angka yang dulu hanya impian. Semua orang mengucapkan selamat. Anda mengambil cuti panjang, liburan ke tempat-tempat yang dulu hanya Anda lihat di majalah.
+
+Dan setelah dua bulan, kekosongan itu datang. Anda bangun pagi dan tidak tahu untuk apa. Uang ada, waktu ada—tapi *purpose* hilang bersama bisnis yang sudah bukan milik Anda lagi. Inilah *post-exit depression* yang jarang dibicarakan. PICI adalah satu-satunya tempat di Indonesia di mana Founder pasca-exit berkumpul, membahas private investment, family office, philanthropy, dan *next chapter*—tanpa harus pura-pura semua baik-baik saja.
+
+**Headline:** UANG SUDAH ADA. ARAH BELUM.
+**Description:** PICI: Komunitas Founder pasca-exit untuk membangun chapter berikutnya.
+
+---
+
+## Ad 10 — pici_10_next_gen — BUKAN HADIAH. UJIAN.
+
+**Image filename:** `pici_nextgen_garden.png`
+
+**Image prompt:**
+1:1 cinematic square. A high-end editorial shot of Indonesian 'Old Money' elite. An upscale evening garden party at a private heritage mansion in Menteng. A crowd of around 12-15 elegantly dressed men and women across multiple generations (some senior patriarchs in their 60s, some peers in their 30s) mingling at scattered cocktail tables under warm string lights and lush tropical greenery. The focus is on one young Indonesian male heir in his early 30s, wearing a quiet luxury linen suit, standing near his elderly father (in formal batik) who is talking to other senior elite. The young heir holds a glass of wine, his expression carrying the weight of expectation, slightly disconnected from the older crowd. Soft moody warm lighting, fairy lights, soft bokeh. Photorealistic, shot on 35mm film style, high contrast.
+
+**Bottom overlay:**
+1. (Headline, Very Large Bold): BUKAN HADIAH. UJIAN.
+2. (Sub-headline, Large): NAMA KELUARGA ANDA MEMBUKA PINTU. TAPI HANYA ANDA YANG BISA MEMPERTAHANKANNYA.
+3. (Body text, Medium): Generasi kedua atau ketiga sebuah konglomerasi hidup di bawah bayangan. PICI mempertemukan sesama *next-gen* Founder yang memikul beban yang sama: melanjutkan warisan tanpa menghancurkannya.
+4. (CTA, Small): PICI: Daftarkan diri Anda untuk seleksi →
+
+**Primary Text:**
+Setiap kali Anda masuk ke ruang rapat keluarga, Anda merasakannya. Tatapan direksi senior yang dulu adalah "tangan kanan ayah". Bisikan halus di kalangan kerabat: *"Apakah dia cukup mampu?"* Statistik dingin yang menghantui: 70% bisnis keluarga hancur di generasi ketiga.
+
+Anda tidak bisa mengeluh ke teman-teman lama dari sekolah. Mereka tidak mengerti. Mereka pikir Anda beruntung—lahir dengan sendok emas. Mereka tidak tahu bahwa "sendok emas" itu sebenarnya adalah pisau yang menggantung di leher Anda setiap hari.
+
+Anda butuh peer yang memikul beban yang sama. Generasi penerus yang juga sedang berjuang membuktikan diri di mata patriarch dan dewan komisaris. PICI mempertemukan *next-gen* Founder dari keluarga konglomerasi top Indonesia—di sini Anda bisa membahas suksesi, konflik antar saudara, transformasi bisnis lama, tanpa takut kabar bocor ke pesaing atau ke dalam keluarga sendiri.
+
+**Headline:** WARISAN TIDAK GRATIS. ANDA HARUS LAYAK MENERIMANYA.
+**Description:** PICI: Lingkaran tertutup untuk generasi penerus konglomerasi Indonesia.
+
+---
+
+## Ad 11 — pici_11_silent_operator — DUNIA YANG BERGESER
+
+**Image filename:** `pici_silent_operator_cafe.png`
+
+**Image prompt:**
+1:1 cinematic square. A high-end editorial shot of Indonesian 'Old Money' elite. An exclusive sophisticated cafe terrace at a 5-star hotel in Jakarta, surrounded by lush manicured tropical garden. A crowd of around 10-12 well-dressed men and women in afternoon business attire seated at scattered tables having intense discussions over coffee and pastries. The focus is on one Indonesian male Owner in his late 40s wearing an elegant dark batik shirt and quiet luxury watch, sitting with his peers, but his eyes show concern as he listens to the conversation about modern markets. Background: marble floors, brass details, lush palms, soft natural daylight filtered through trellised pergola. Cinematic warm afternoon lighting, soft shadows. Photorealistic, shot on 35mm film style.
+
+**Bottom overlay:**
+1. (Headline, Very Large Bold): DUNIA YANG BERGESER
+2. (Sub-headline, Large): ANDA MEMBANGUN PABRIK. ANAK ANDA INGIN MEMBANGUN PLATFORM.
+3. (Body text, Medium): Bisnis tradisional Anda sudah teruji puluhan tahun. Tapi disrupsi digital, tokenisasi aset, dan gen baru investor mengubah peta. PICI mempertemukan Owner industri tradisional yang sedang melakukan transisi.
+4. (CTA, Small): PICI: Daftarkan diri Anda untuk seleksi →
+
+**Primary Text:**
+Anda membangun bisnis ini dari nol. Pabrik Anda berdiri kokoh sejak tahun 1990-an. Distributor Anda tersebar dari Sabang sampai Merauke. Di kalangan asosiasi pengusaha, nama Anda dihormati.
+
+Lalu anak Anda pulang dari Stanford. Dia membawa istilah-istilah yang asing: "Series B funding", "EBITDA multiple", "tokenization", "AI-driven supply chain". Dia bilang bisnis Anda perlu "transformasi digital" atau akan "disrupted dalam 5 tahun".
+
+Anda tidak bodoh. Anda tahu dunia bergerak. Tapi peer Anda di asosiasi lama kebanyakan masih bicara soal harga bahan baku dan kuota impor. Sementara Anda butuh ruang untuk membahas: bagaimana bisnis 30 tahun bisa bersanding dengan logika startup tanpa kehilangan jiwanya? PICI mengumpulkan Owner industri tradisional papan atas yang sedang melakukan transisi yang sama. Di sini Anda bertemu peer yang menghormati apa yang sudah Anda bangun, sekaligus paham ke mana arah angin akan berhembus.
+
+**Headline:** BISNIS ANDA TAHAN 30 TAHUN. APAKAH 5 TAHUN KE DEPAN?
+**Description:** PICI: Forum Owner industri tradisional di era transisi digital.
+
+---
+
+## Ad 12 — pici_12_new_money — HASIL, BUKAN NAMA KELUARGA
+
+**Image filename:** `pici_newmoney_beach.png`
+
+**Image prompt:**
+1:1 cinematic square. A high-end editorial shot of Indonesian 'Old Money' elite. An exclusive private beach club in Bali (Nusa Dua or Uluwatu cliffside style) at sunset. A crowd of around 10-12 sophisticated men and women in resort luxury wear (linen, silk, panama hats) standing on a wooden deck overlooking the Indian Ocean, holding cocktails. The focus is on one young Indonesian male Founder in his early 30s in a crisp white linen shirt and tailored beige trousers, looking confident but observant—a successful first-generation wealth holder among old money peers. Background: turquoise ocean, dramatic cliff coastline, scattered teak loungers, hanging rattan lamps. Warm golden hour lighting, cinematic depth, soft sea breeze atmosphere. Photorealistic, shot on 35mm film style.
+
+**Bottom overlay:**
+1. (Headline, Very Large Bold): HASIL, BUKAN NAMA KELUARGA
+2. (Sub-headline, Large): OLD MONEY MENOLAK ANDA. KAMI MENYELEKSI BERDASARKAN PENCAPAIAN.
+3. (Body text, Medium): Anda bangun kekayaan dari nol—tech, crypto, atau startup yang exit. Tapi pintu lingkaran lama tertutup karena Anda "tidak ada nama". PICI menyeleksi anggota berdasarkan rekam jejak nyata, bukan silsilah.
+4. (CTA, Small): PICI: Daftarkan diri Anda untuk seleksi →
+
+**Primary Text:**
+Anda sudah masuk daftar orang-orang dengan kekayaan terbesar di kelompok usia Anda. Net worth Anda mengalahkan banyak nama lama. Tapi Anda tahu aturan tidak tertulis itu—saat Anda masuk ke gala amal, peluncuran private banking, atau dinner club tertutup, ada *garis halus*. Anda diundang, tapi Anda bukan bagian dari mereka.
+
+"Lucky", "anak kemarin sore", "uang cepat"—Anda mendengar bisikan itu, baik diucapkan terang-terangan maupun lewat tatapan. Akses ke pre-IPO deal, trophy real estate yang tidak pernah masuk listing publik, atau syndicate akuisisi top-tier—semua itu beredar di lingkaran yang Anda belum bisa masuki.
+
+PICI dibangun dengan filosofi berbeda. Kami menyeleksi anggota berdasarkan *track record* nyata: revenue, valuasi, exit, aset terkelola. Bukan nama keluarga, bukan tahun berdiri, bukan koneksi turunan. Jika Anda membangun kekayaan signifikan dari nol di era ini, Anda bukan tamu di sini—Anda adalah anggota yang setara.
+
+**Headline:** ANDA SUDAH KAYA. SEKARANG ANDA BUTUH AKSES.
+**Description:** PICI: Klub elit yang menyeleksi berdasarkan pencapaian, bukan keturunan.
+
+---
+
+## Ad 13 — pici_13_regional — DARI RAJA DAERAH KE PEMAIN NASIONAL
+
+**Image filename:** `pici_regional_hill.png`
+
+**Image prompt:**
+1:1 cinematic square. A high-end editorial shot of Indonesian 'Old Money' elite. An exclusive luxury private estate on a hilltop overlooking a vast tropical landscape (Puncak or Bandung highland villa style). A crowd of around 10-12 sophisticated men and women in smart-casual luxury wear gathered on a stone terrace with panoramic mountain views, drinking wine and engaged in serious networking conversations. The focus is on one Indonesian male Owner in his late 40s wearing a quiet luxury polo and tailored trousers—a regional tycoon visibly observing the Jakarta elite around him with calculated awareness. Background: sweeping mountain valleys, infinity edge of the terrace, manicured gardens, warm stone architecture. Dramatic late afternoon lighting with golden warm tones. Photorealistic, shot on 35mm film style.
+
+**Bottom overlay:**
+1. (Headline, Very Large Bold): DARI RAJA DAERAH KE PEMAIN NASIONAL
+2. (Sub-headline, Large): DI KOTA ANDA, SEMUA PINTU TERBUKA. DI JAKARTA, ANDA HARUS MENGETUKNYA SATU PER SATU.
+3. (Body text, Medium): Anda sudah dominan di kota asal—Surabaya, Medan, Makassar, Semarang. Tapi naik kelas ke pusat membutuhkan jaringan yang berbeda. PICI adalah pintu masuk ke lingkaran nasional Indonesia.
+4. (CTA, Small): PICI: Daftarkan diri Anda untuk seleksi →
+
+**Primary Text:**
+Di kota Anda, semua orang kenal. Walikota menelepon balik. Bank lokal memberi limit kredit dua kali lipat orang biasa. Acara amal apa pun, undangan VIP datang ke meja Anda. Anda adalah salah satu *de facto* power broker daerah.
+
+Tapi setiap Anda turun di Halim atau Soekarno-Hatta untuk urusan bisnis di Jakarta, perasaan itu kembali. Di sini, nama Anda tidak otomatis membuka pintu. Regulator OJK, Bank Indonesia, Kementerian—mereka tidak kenal Anda. Konglomerasi besar memandang Anda sebagai "pemain daerah" yang belum naik kelas. Anak-anak Anda kuliah dan menetap di Jakarta, tapi Anda belum punya *home base* sosial di sini.
+
+Naik kelas dari raja daerah ke pemain nasional bukan soal modal—Anda punya itu. Ini soal akses. PICI adalah filter masuk ke lingkaran Founder & Owner papan atas Jakarta yang sudah terhubung ke pusat kekuasaan. Di sini Anda mendapat peer, sponsor, dan referensi yang dibutuhkan untuk meningkatkan permainan dari skala provinsi ke skala nasional.
+
+**Headline:** UANG MEMBAWA ANDA SAMPAI BANDARA. AKSES MEMBAWA ANDA MASUK KOTA.
+**Description:** PICI: Pintu masuk lingkaran nasional bagi pemain elit daerah.
+
+---
+
+## Ad 14 — pici_14_patriarch — BEBAN SETELAH HANDOVER
+
+**Image filename:** `pici_patriarch_park.png`
+
+**Image prompt:**
+1:1 cinematic square. A high-end editorial shot of Indonesian 'Old Money' elite. An exclusive private park or sculpture garden at a heritage estate in Menteng or Bogor (manicured European-style gardens with marble fountains and trimmed hedges). A crowd of around 10-12 distinguished men and women, mostly in their 50s-70s, in elegant formal afternoon wear, walking slowly and conversing in pairs and small groups along the gravel pathways. The focus is on one Indonesian male patriarch in his mid-60s, wearing a classic dark batik shirt and tailored trousers, walking thoughtfully along a row of trimmed hedges, hands clasped behind his back, deep in contemplation about legacy. Background: marble fountain, classical statues, mature shade trees, late afternoon golden light. Cinematic, dignified atmosphere. Photorealistic, shot on 35mm film style.
+
+**Bottom overlay:**
+1. (Headline, Very Large Bold): BEBAN SETELAH HANDOVER
+2. (Sub-headline, Large): ANDA MEMBANGUN 40 TAHUN. WARISAN HANYA BUTUH 5 TAHUN UNTUK HANCUR.
+3. (Body text, Medium): Anda sudah handover operasional, tapi pikiran Anda tidak pernah benar-benar pensiun. PICI mempertemukan patriarch konglomerasi yang sedang menjaga warisan tetap utuh.
+4. (CTA, Small): PICI: Daftarkan diri Anda untuk seleksi →
+
+**Primary Text:**
+Anda sudah handover. CEO baru sudah duduk. Anak-anak sudah memegang divisi masing-masing. Di atas kertas, Anda adalah patriarch yang seharusnya menikmati hasil—golf di akhir pekan, perjalanan ke Eropa setiap musim panas, bermain dengan cucu.
+
+Tapi pikiran Anda tidak pernah benar-benar pensiun. Setiap kali ada keputusan besar, Anda masih dilibatkan—setengah karena hormat, setengah karena anak-anak masih ragu. Anda melihat tanda-tanda halus konflik di antara mereka soal saham warisan. Anda khawatir profesional CEO bermain politik. Dan Anda tahu statistiknya: 70% bisnis keluarga hancur di generasi ketiga.
+
+Teman-teman seangkatan Anda? Sebagian besar sudah benar-benar pensiun, sibuk dengan hobi. Beberapa sudah meninggal. Yang masih aktif terlalu sibuk dengan beban masing-masing. Anda butuh peer yang memahami beban *senior advisor* sebuah konglomerasi keluarga—bukan pensiunan yang lepas tangan, bukan operator yang masih full-time. PICI mengumpulkan patriarch dan matriarch konglomerasi top Indonesia yang sedang berjuang menjaga warisan generasi tetap utuh.
+
+**Headline:** PEKERJAAN ANDA BELUM SELESAI. ANDA HANYA TIDAK DI MEJA YANG SAMA LAGI.
+**Description:** PICI: Forum patriarch konglomerasi untuk menjaga warisan multi-generasi.
