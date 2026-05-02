@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="id" data-theme="dark" data-lang="id">
 <head>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3723313531141818');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
@@ -1763,6 +1780,12 @@ async function handleSubmit() {
 
       // Trigger CAPI Purchase Event via Edge Function
       const eventIdPur = 'pur_' + new Date().getTime() + '_' + Math.floor(Math.random() * 1000);
+
+      // Trigger Browser Pixel Purchase Event
+      if (typeof fbq === 'function') {
+        fbq('track', 'Purchase', { value: 1, currency: 'IDR' }, { eventID: eventIdPur });
+      }
+
       fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/capi-universal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1862,6 +1885,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Trigger ViewContent via Edge Function CAPI
   const eventIdView = 'view_' + new Date().getTime() + '_' + Math.floor(Math.random() * 1000);
+
+  // Trigger Browser Pixel ViewContent Event
+  if (typeof fbq === 'function') {
+    fbq('track', 'ViewContent', {}, { eventID: eventIdView });
+  }
+
   fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/capi-universal', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
