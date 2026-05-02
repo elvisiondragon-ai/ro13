@@ -13,6 +13,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 'https://connect.facebook.net/en_US/fbevents.js');
 fbq('init', '3723313531141818');
 fbq('track', 'PageView');
+fbq('track', 'ViewContent');
 </script>
 <noscript><img height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
@@ -1781,11 +1782,6 @@ async function handleSubmit() {
       // Trigger CAPI Purchase Event via Edge Function
       const eventIdPur = 'pur_' + new Date().getTime() + '_' + Math.floor(Math.random() * 1000);
 
-      // Trigger Browser Pixel Purchase Event
-      if (typeof fbq === 'function') {
-        fbq('track', 'Purchase', { value: 1, currency: 'IDR' }, { eventID: eventIdPur });
-      }
-
       fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/capi-universal', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -1886,10 +1882,6 @@ document.addEventListener('DOMContentLoaded', () => {
   // Trigger ViewContent via Edge Function CAPI
   const eventIdView = 'view_' + new Date().getTime() + '_' + Math.floor(Math.random() * 1000);
 
-  // Trigger Browser Pixel ViewContent Event
-  if (typeof fbq === 'function') {
-    fbq('track', 'ViewContent', {}, { eventID: eventIdView });
-  }
 
   fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/capi-universal', {
     method: 'POST',
