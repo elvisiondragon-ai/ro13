@@ -907,6 +907,12 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
             <option>Lebih banyak ingin mendengar & belajar dahulu</option>
           </select>
         </div>
+
+        <div class="form-group full">
+          <label>Kesiapan Meet-up</label>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 0.5rem; line-height: 1.6;">Apakah Anda bersedia segera meet up casual di area Jakarta Barat? Jika Ya, sesegera apa Anda siap?</p>
+          <input type="text" id="s-meetup" placeholder="Contoh: Ya, minggu ini siap / Ya, tapi awal bulan depan">
+        </div>
       </div>
       <button class="form-submit" onclick="handleSurveySubmit()">Kirim Survey &nbsp;→</button>
     </div>
@@ -1408,6 +1414,7 @@ async function handleSurveySubmit() {
     kronologis: document.getElementById('s-kronologis').value,
     ekspektasi: document.getElementById('s-ekspektasi').value,
     kesiapan: document.getElementById('s-kesiapan').value,
+    meetup: document.getElementById('s-meetup').value,
     timestamp: new Date().toISOString()
   };
 
@@ -1433,7 +1440,7 @@ async function handleSurveySubmit() {
       document.getElementById('survey-inner').style.display = 'none';
       document.getElementById('survey-success').classList.add('show');
       
-      const waMessage = `Halo Tim Ro33, saya ${data.nama} telah mengisi Survey Pra-Pertemuan.\n\n*Pain Point Utama:*\n${data.pain_point}\n\n*Kronologis Singkat:*\n${data.kronologis}\n\n*Ekspektasi:*\n${data.ekspektasi}\n\n*Kesiapan Berbagi:*\n${data.kesiapan}`;
+      const waMessage = `Halo Tim Ro33, saya ${data.nama} telah mengisi Survey Pra-Pertemuan.\n\n*Pain Point Utama:*\n${data.pain_point}\n\n*Kronologis Singkat:*\n${data.kronologis}\n\n*Ekspektasi:*\n${data.ekspektasi}\n\n*Kesiapan Berbagi:*\n${data.kesiapan}\n\n*Kesiapan Meet-up (Jakarta Barat):*\n${data.meetup}`;
       const waUrl = `https://wa.me/62895325633487?text=${encodeURIComponent(waMessage)}`;
       
       setTimeout(() => {
