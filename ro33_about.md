@@ -1,4 +1,4 @@
-# Profil & Inti Sari Ro33 (Result Origin 33)
+ # Profil & Inti Sari Ro33 (Result Origin 33)
 
 Dokumen ini memuat penjelasan mendalam mengenai apa itu Ro33, siapa saja yang berada di dalamnya, dan transformasi nyata (Before-After) yang dialami oleh para membernya.
 
