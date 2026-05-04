@@ -1439,13 +1439,6 @@ async function handleSurveySubmit() {
     if (response.ok) {
       document.getElementById('survey-inner').style.display = 'none';
       document.getElementById('survey-success').classList.add('show');
-      
-      const waMessage = `Halo Tim Ro33, saya ${data.nama} telah mengisi Survey Pra-Pertemuan.\n\n*Pain Point Utama:*\n${data.pain_point}\n\n*Kronologis Singkat:*\n${data.kronologis}\n\n*Ekspektasi:*\n${data.ekspektasi}\n\n*Kesiapan Berbagi:*\n${data.kesiapan}\n\n*Kesiapan Meet-up (Jakarta Barat):*\n${data.meetup}`;
-      const waUrl = `https://wa.me/62895325633487?text=${encodeURIComponent(waMessage)}`;
-      
-      setTimeout(() => {
-        window.location.href = waUrl;
-      }, 1500);
     } else {
       throw new Error('Gagal mengirim data');
     }
