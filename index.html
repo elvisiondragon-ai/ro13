@@ -1273,7 +1273,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 
 <div class="sep"></div>
 
-<section>
+<section id="default-form-section">
   <p class="section-eyebrow">Bergabung</p>
   <h2 class="section-title">Isi form,<br><em>kita bertemu.</em></h2>
   <p class="section-body">Tidak ada seleksi yang rumit. Isi form dengan jujur — dan kita lihat apakah ini memang pertemuan yang tepat.</p>
@@ -2131,7 +2131,11 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (params.has('sesi')) {
-    document.querySelector('.form-wrap').style.display = 'none';
+    // Hide default PICI flow
+    document.getElementById('default-process-section').style.display = 'none';
+    document.getElementById('default-form-section').style.display = 'none';
+
+    // Show Session flow
     document.getElementById('sesi-payment-section').style.display = 'block';
     
     // Smooth scroll to the payment section slightly after load to ensure rendering
@@ -2161,3 +2165,4 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
+l>
