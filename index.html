@@ -1386,7 +1386,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
   <div style="background: var(--bg-2); border: 1px solid var(--gold); padding: 3rem 2rem; text-align: center; margin-bottom: 1.5rem;">
     <span style="font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; display: block;">Sesi Privat 1:1</span>
     <div style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold-light); margin-bottom: 0.5rem;">
-      <span style="text-decoration: line-through; color: var(--text-muted); font-size: 1.5rem; margin-right: 10px; opacity: 0.6;">Rp 7.5jt</span>
+      <span style="text-decoration: line-through; color: var(--text-muted); font-size: 1.5rem; margin-right: 10px; opacity: 0.6;">Rp 7.500.000</span><br>
       Rp 1.000.000
     </div>
   </div>
@@ -1422,7 +1422,12 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
   </div>
 
   <div id="payment-method-wrap" style="display:none;">
-    <h3 class="section-eyebrow" style="text-align:left;">Metode Pembayaran</h3>
+    <h3 class="section-eyebrow" style="text-align:left;">2. Lengkapi Data Anda</h3>
+    <input type="text" id="sesi-nama" placeholder="Nama Lengkap" style="width:100%; background:var(--bg-3); border:0.5px solid var(--border); padding:1rem; color:var(--text); margin-bottom: 1rem; font-family: inherit; font-size: 14px;" required>
+    <input type="email" id="sesi-email" placeholder="Email Aktif" style="width:100%; background:var(--bg-3); border:0.5px solid var(--border); padding:1rem; color:var(--text); margin-bottom: 1rem; font-family: inherit; font-size: 14px;" required>
+    <input type="tel" id="sesi-wa" placeholder="Nomor WhatsApp" style="width:100%; background:var(--bg-3); border:0.5px solid var(--border); padding:1rem; color:var(--text); margin-bottom: 2rem; font-family: inherit; font-size: 14px;" required>
+
+    <h3 class="section-eyebrow" style="text-align:left;">3. Metode Pembayaran</h3>
     <select id="pay-method" style="width:100%; background:var(--bg-3); border:0.5px solid var(--border); padding:1rem; color:var(--text); appearance:none; margin-bottom: 2rem; font-family: inherit;">
       <option value="" disabled selected>Pilih Pembayaran...</option>
       <option value="QRIS">QRIS (Redirect Aplikasi)</option>
@@ -2167,11 +2172,26 @@ function selectTime(t, el) {
 document.getElementById('btn-process-pay')?.addEventListener('click', async () => {
   const method = document.getElementById('pay-method').value;
   if (!selectedDateIso || !selectedTime) return alert('Pilih jadwal terlebih dahulu.');
-  if (!method) return alert('Pilih metode pembayaran.');
   
-  const name = document.getElementById('f-nama').value.trim();
-  const wa = document.getElementById('f-wa').value.trim();
-  const email = document.getElementById('f-email').value.trim() || 'guest@ro33.org';
+  let name = '';
+  let wa = '';
+  let email = '';
+  
+  const sesiNamaEl = document.getElementById('sesi-nama');
+  if (sesiNamaEl && sesiNamaEl.offsetParent !== null) {
+      // In the ?sesi flow
+      name = sesiNamaEl.value.trim();
+      wa = document.getElementById('sesi-wa').value.trim();
+      email = document.getElementById('sesi-email').value.trim();
+      if (!name || !wa || !email) return alert('Harap lengkapi Nama, Email, dan WhatsApp sebelum membayar.');
+  } else {
+      // In the default PICI flow
+      name = document.getElementById('f-nama').value.trim();
+      wa = document.getElementById('f-wa').value.trim();
+      email = document.getElementById('f-email').value.trim() || 'guest@ro33.org';
+  }
+
+  if (!method) return alert('Pilih metode pembayaran.');
 
   const btn = document.getElementById('btn-process-pay');
   btn.innerText = 'MEMPROSES...'; btn.disabled = true;
