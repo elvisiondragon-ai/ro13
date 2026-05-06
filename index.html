@@ -217,16 +217,6 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     line-height: 1.9;
   }
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 2.5rem; left: 50%;
-    transform: translateX(-50%);
-    font-size: 10px;
-    letter-spacing: 0.3em;
-    color: var(--text-muted);
-    text-transform: uppercase;
-  }
-
   /* SECTION */
   section {
     padding: 6rem 2rem;
@@ -279,8 +269,6 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     padding: 2rem 1.75rem;
     transition: background 0.3s;
   }
-
-  .pillar-icon { width: 28px; height: 28px; margin-bottom: 1.25rem; opacity: 0.7; }
 
   .pillar-title {
     font-family: 'Cormorant Garamond', serif;
@@ -916,9 +904,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
       </div>
     </div>
   </div>
-    <p style="font-size: 10px; color: var(--text-muted); margin-top: 1rem; letter-spacing: 0.05em; opacity: 0.7;">
-      *Untuk saat ini. Tidak ada biaya keanggotaan, tidak ada paket, tidak ada upsell.
-    </p>
+    
   </div>
 </section>
 
@@ -1066,14 +1052,14 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
   <h2 class="section-title">Bukan sekadar<br><em>pertemuan biasa.</em></h2>
   <p class="section-body">
     Dalam perjalanan saya mendampingi para founder dan entrepreneur, satu hal selalu berulang: beban pikiran yang menumpuk bukan karena kurang ilmu — tapi karena energi yang tidak seimbang.<br><br>
-    Ro33 hadir sebagai ruang untuk menjernihkan itu semua. Melalui meditasi bersama, olahraga, diskusi terbuka, dan percakapan yang tidak bisa terjadi di forum biasa — kita bertemu sebagai sesama pembangun. Tanpa agenda tersembunyi. Tanpa biaya. Hanya di kafe, di Jakarta Barat.
+    Ro33 hadir sebagai ruang untuk menjernihkan itu semua. Melalui meditasi bersama, olahraga, diskusi terbuka, dan percakapan yang tidak bisa terjadi di forum biasa — kita bertemu sebagai sesama pembangun. Tanpa agenda tersembunyi. Hanya di kafe, di Jakarta Barat.
   </p>
   <div class="location-badge">
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.7">
       <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
       <circle cx="12" cy="9" r="2.5"/>
     </svg>
-    Khusus Area Jakarta Barat &nbsp;·&nbsp; 0 Biaya
+    Khusus Area Jakarta Barat
   </div>
 </section>
 
@@ -1086,8 +1072,6 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     <!-- Videos will be injected here -->
   </div>
 </section>
-
-
 
 <section>
   <p class="section-eyebrow">Seleksi Alami</p>
@@ -1238,10 +1222,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
   <h2 class="section-title">FAQ</h2>
   
   <div style="margin-top: 3rem;">
-    <div style="border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
-      <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; color: var(--gold); margin-bottom: 0.75rem;">Apakah ada biaya?</h3>
-      <p style="color: var(--text-muted); font-size: 14px; line-height: 1.7;">Tidak ada biaya untuk pertemuan. Ro33 bukan layanan berbayar — ini adalah lingkaran yang dibangun di atas kepercayaan dan kesamaan frekuensi.</p>
-    </div>
+    
     
     <div style="border-bottom: 1px solid var(--border); padding-bottom: 1.5rem; margin-bottom: 1.5rem;">
       <h3 style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 500; color: var(--gold); margin-bottom: 0.75rem;">Seperti apa konsepnya?</h3>
@@ -1351,11 +1332,72 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
       </div>
       <button class="form-submit" onclick="handleSubmit()">Daftarkan Diri &nbsp;→</button>
     </div>
-    <div class="form-success" id="form-success">
-      <p class="form-success-title">Terima kasih.</p>
-      <p class="form-success-msg">Kami sudah menerima informasi Anda.<br>Jika cocok, kami akan menghubungi Anda melalui WhatsApp untuk detail pertemuan.<br><br>Sampai jumpa di Jakarta Barat.</p>
-    </div>
   </div>
+</section>
+
+<!-- SESI PAYMENT SECTION (HIDDEN BY DEFAULT, SHOWN ON SUBMIT IF ?sesi IS PRESENT) -->
+<section id="sesi-payment-section" style="display:none; padding: 4rem 2rem; max-width: 600px; margin: 0 auto;">
+  <p class="section-eyebrow">Langkah Terakhir</p>
+  <h2 class="section-title">Ambil <em>Spot Anda</em></h2>
+  
+  <div style="background: var(--bg-2); border: 1px solid var(--gold); padding: 3rem 2rem; text-align: center; margin-bottom: 3rem;">
+    <span style="font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; display: block;">Sesi Privat</span>
+    <div style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold-light); margin-bottom: 0.5rem;">
+      <span style="text-decoration: line-through; color: var(--text-muted); font-size: 1.5rem; margin-right: 10px; opacity: 0.6;">Rp 7.5jt</span>
+      Rp 1.000.000
+    </div>
+    <p style="font-size: 11px; color: var(--gold); margin-bottom: 2rem;">*Harga naik berdasarkan urutan pendaftar.</p>
+  </div>
+
+  <h3 class="section-eyebrow" style="text-align:left;">1. Pilih Jadwal</h3>
+  <div id="date-opts-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 2rem;"></div>
+  
+  <div id="time-opts-wrap" style="display:none; margin-bottom: 3rem;">
+    <h3 class="section-eyebrow" style="text-align:left;">Pilih Jam</h3>
+    <div id="time-opts-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap: 10px;"></div>
+  </div>
+
+  <div id="payment-method-wrap" style="display:none;">
+    <h3 class="section-eyebrow" style="text-align:left;">2. Metode Pembayaran</h3>
+    <select id="pay-method" style="width:100%; background:var(--bg-3); border:0.5px solid var(--border); padding:1rem; color:var(--text); appearance:none; margin-bottom: 2rem; font-family: inherit;">
+      <option value="" disabled selected>Pilih Pembayaran...</option>
+      <option value="QRIS">QRIS (Redirect Aplikasi)</option>
+      <option value="DANA">E-Wallet DANA</option>
+      <option value="OVO">E-Wallet OVO</option>
+      <option value="SHOPEEPAY">E-Wallet ShopeePay</option>
+      <option value="BCA_MANUAL">Manual Transfer BCA (Dicek Manual)</option>
+      <option value="BCAVA">BCA Virtual Account</option>
+      <option value="BNIVA">BNI Virtual Account</option>
+      <option value="BRIVA">BRI Virtual Account</option>
+      <option value="MANDIRIVA">Mandiri Virtual Account</option>
+      <option value="INDOMARET">Gerai Indomaret</option>
+      <option value="ALFAMART">Gerai Alfamart</option>
+      <option value="ALFAMIDI">Gerai Alfamidi</option>
+    </select>
+
+    <button id="btn-process-pay" style="width: 100%; padding: 1.25rem; background: var(--gold); color: var(--bg); border: none; text-transform: uppercase; font-weight: 500; letter-spacing: 0.2em; cursor: pointer; font-size: 13px;">Selesaikan Pembayaran &nbsp;→</button>
+  </div>
+</section>
+
+<section id="manual-bca" style="display:none; text-align: center; padding: 4rem 2rem;">
+    <h2 class="section-title">Transfer <em>Manual</em></h2>
+    <p style="color: var(--gold-light); font-size: 2.5rem; margin-bottom: 1rem;" id="bca-amount-display">Rp 1.000.xxx</p>
+    <p style="margin-bottom: 2rem;">Transfer ke BCA: <strong>0663189999</strong> (EL REYZANDRA)</p>
+    <button id="btn-wa-manual" style="padding: 1.25rem; background: var(--gold); color: var(--bg); border: none; text-transform: uppercase; font-weight: 500; letter-spacing: 0.2em; cursor: pointer;">Saya Sudah Transfer</button>
+</section>
+
+<section id="tripay-instructions" style="display:none; text-align: center; padding: 4rem 2rem;">
+    <h2 class="section-title">Menunggu <em>Bayar</em></h2>
+    <div id="qris-area" style="display:none;">
+        <img id="qris-img" src="" style="max-width: 250px; margin: 0 auto 2rem; border: 10px solid white; border-radius: 10px;">
+        <p style="font-size: 14px; color: var(--text-muted);">Scan QRIS di atas dengan aplikasi m-banking atau e-wallet Anda.</p>
+    </div>
+    <div id="va-area" style="display:none;">
+        <p>Kode Pembayaran / Virtual Account:</p>
+        <p style="color: var(--gold-light); font-size: 2.5rem; letter-spacing: 0.1em; margin: 1rem 0;" id="va-number">88000XXXXXXXX</p>
+    </div>
+    <br>
+    <button id="btn-wa-tripay" style="padding: 1.25rem 2rem; background: var(--gold); color: var(--bg); border: none; text-transform: uppercase; font-weight: 500; letter-spacing: 0.2em; cursor: pointer;">Konfirmasi via WhatsApp</button>
 </section>
 
 <div class="sep"></div>
@@ -1525,16 +1567,16 @@ const translations = {
     'sig-m-r-text': '<strong>Huruf ke-18</strong> dalam alfabet. Mewakili <strong>Result</strong> — hasil nyata sebagai pondasi setiap pertemuan, percakapan, dan energi yang dilepaskan.',
     'sig-m-o-text': '<strong>Huruf ke-15</strong> dalam alfabet. Mewakili <strong>Origin</strong> — sumber, asal mula, titik nol. Karena hasil sejati selalu lahir dari diri yang jernih, bukan dari kebisingan luar.',
     'sig-m-num-desc': 'Dalam numerologi, <strong>33</strong> adalah <strong>Master Number</strong> tertinggi — disebut juga <em>"Master Teacher"</em>. Angka langka yang melambangkan komunitas guru, penyembuh, dan pelayan yang fokus pada pertumbuhan sesama. Bukan kebetulan Ro<strong>33</strong> berdiri di angka ini.',
-    'sig-b-1': 'Rp 0 Untuk Bergabung*',
+    'sig-b-1': 'Exclusive Session',
     'sig-b-2': 'Praktek > Teori',
     'sig-b-3': 'Tanpa Basa-Basi',
-    'sig-b-footnote': '*Untuk saat ini. Tidak ada biaya keanggotaan, tidak ada paket, tidak ada upsell.',
+    'sig-b-footnote': '',
     'card-sec-eyebrow': 'Dilema Eksekutif',
     'card-sec-title': 'Kesepian di Puncak.<br><em>Ilusi Kebebasan.</em>',
     'card-sec-desc': 'Banyak yang menginginkan posisi Anda, tapi sangat sedikit yang sanggup menanggung bebannya. Ro33 hadir untuk menyelesaikan masalah yang tidak bisa Anda diskusikan dengan karyawan maupun keluarga.',
     'about-sec-title': 'Bukan sekadar<br><em>pertemuan biasa.</em>',
-    'about-sec-desc': 'Dalam perjalanan saya mendampingi para founder dan entrepreneur, satu hal selalu berulang: beban pikiran yang menumpuk bukan karena kurang ilmu — tapi karena energi yang tidak seimbang.<br><br>Ro33 hadir sebagai ruang untuk menjernihkan itu semua. Melalui meditasi bersama, olahraga, diskusi terbuka, dan percakapan yang tidak bisa terjadi di forum biasa — kita bertemu sebagai sesama pembangun. Tanpa agenda tersembunyi. Tanpa biaya. Hanya di kafe, di Jakarta Barat.',
-    'location-badge': `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.7"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> Khusus Area Jakarta Barat &nbsp;·&nbsp; 0 Biaya`,
+    'about-sec-desc': 'Dalam perjalanan saya mendampingi para founder dan entrepreneur, satu hal selalu berulang: beban pikiran yang menumpuk bukan karena kurang ilmu — tapi karena energi yang tidak seimbang.<br><br>Ro33 hadir sebagai ruang untuk menjernihkan itu semua. Melalui meditasi bersama, olahraga, diskusi terbuka, dan percakapan yang tidak bisa terjadi di forum biasa — kita bertemu sebagai sesama pembangun. Tanpa agenda tersembunyi. Hanya di kafe, di Jakarta Barat.',
+    'location-badge': `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.7"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> Khusus Area Jakarta Barat`,
     'video-sec-eyebrow': 'Bukti Nyata',
     'video-sec-title': 'Mereka yang telah<br><em>bertransformasi.</em>',
     'p-sec-eyebrow': 'Apa yang kita lakukan',
@@ -1604,16 +1646,16 @@ const translations = {
     'sig-m-r-text': '<strong>18th letter</strong> in the alphabet. Represents <strong>Result</strong> — tangible results as the foundation of every meeting, conversation, and energy released.',
     'sig-m-o-text': '<strong>15th letter</strong> in the alphabet. Represents <strong>Origin</strong> — source, origin, point zero. Because true results are always born from a clear self, not from outside noise.',
     'sig-m-num-desc': 'In numerology, <strong>33</strong> is the highest <strong>Master Number</strong> — also called the <em>"Master Teacher"</em>. A rare number symbolizing a community of teachers, healers, and servants focusing on the growth of others. It is no coincidence Ro<strong>33</strong> stands on this number.',
-    'sig-b-1': 'Rp 0 To Join*',
+    'sig-b-1': 'Exclusive Session',
     'sig-b-2': 'Practice > Theory',
     'sig-b-3': 'No Small Talk',
-    'sig-b-footnote': '*For now. No membership fees, no packages, no upsells.',
+    'sig-b-footnote': '',
     'card-sec-eyebrow': 'Executive Dilemma',
     'card-sec-title': 'Loneliness at the top.<br><em>The Illusion of Freedom.</em>',
     'card-sec-desc': 'Many want your position, but very few can bear the weight. Ro33 is here to solve the problems you cannot discuss with employees or family.',
     'about-sec-title': 'Not just a<br><em>regular meeting.</em>',
     'about-sec-desc': 'In my journey of supporting founders and entrepreneurs, one thing always repeats: the burden of the mind builds up not from lack of knowledge — but from unbalanced energy.<br><br>Ro33 exists as a space to clear it all. Through group meditation, exercise, open discussions, and conversations that cannot happen in regular forums — we meet as fellow builders. Without hidden agendas. Free of charge. Simply in a cafe, in West Jakarta.',
-    'location-badge': `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.7"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> West Jakarta Area Only &nbsp;·&nbsp; 0 Fees`,
+    'location-badge': `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="opacity:0.7"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg> West Jakarta Area Only &nbsp;·&nbsp; Exclusive`,
     'video-sec-eyebrow': 'Real Evidence',
     'video-sec-title': 'Those who have<br><em>transformed.</em>',
     'p-sec-eyebrow': 'What we do',
@@ -1895,7 +1937,15 @@ async function handleSubmit() {
     });
 
     if (response.ok) {
-      window.location.href = '/survey/';
+      const params = new URLSearchParams(window.location.search);
+      if (params.has('sesi')) {
+        document.querySelector('.form-wrap').style.display = 'none';
+        document.getElementById('sesi-payment-section').style.display = 'block';
+        window.scrollTo({ top: document.getElementById('sesi-payment-section').offsetTop - 100, behavior: 'smooth' });
+        loadSchedule();
+      } else {
+        window.location.href = '/survey/';
+      }
     } else {
       throw new Error('Gagal mengirim data');
     }
@@ -1962,6 +2012,116 @@ function handleVideoClick(el, index) {
   }
 }
 
+let selectedDateIso = '';
+let selectedTime = '';
+let scheduleByDate = {};
+const sessionPrice = 1000000;
+
+async function loadSchedule() {
+  const dtContainer = document.getElementById('date-opts-container');
+  dtContainer.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-muted);">Memuat jadwal...</p>';
+  try {
+    const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5scmdkaHBtc2l0dHV3aWlpbmRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0NDM2MDUsImV4cCI6MjA4OTgwMzYwNX0.2zDvAe28Ho3BWUZC2Sxk7-PopwW0do2139xelPgEwLo';
+    const res = await fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/schedule-list', {
+        headers: { 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}` }
+    });
+    const data = await res.json();
+    scheduleByDate = {};
+    data.available.forEach(r => {
+      if (!scheduleByDate[r.slot_date]) scheduleByDate[r.slot_date] = [];
+      scheduleByDate[r.slot_date].push(r.slot_time.slice(0, 5));
+    });
+    const dates = Object.keys(scheduleByDate).sort();
+    dtContainer.innerHTML = '';
+    dates.forEach(iso => {
+      const d = new Date(iso);
+      const el = document.createElement('div');
+      el.style.cssText = 'background: var(--bg-2); border: 0.5px solid var(--border); padding: 1rem; text-align: center; cursor: pointer;';
+      el.onclick = () => selectDate(iso, el);
+      el.innerHTML = `<span style="display:block; font-family:\\'Cormorant Garamond\\',serif; font-size:1.5rem;">${d.getDate()}</span><span style="font-size:11px; text-transform:uppercase;">${d.toLocaleString('id-ID', {month:'short'})}</span>`;
+      dtContainer.appendChild(el);
+    });
+  } catch (e) { dtContainer.innerHTML = '<p>Gagal memuat jadwal.</p>'; }
+}
+
+function selectDate(iso, el) {
+  selectedDateIso = iso;
+  Array.from(el.parentNode.children).forEach(c => c.style.borderColor = 'var(--border)');
+  el.style.borderColor = 'var(--gold)';
+  const timeContainer = document.getElementById('time-opts-container');
+  timeContainer.innerHTML = '';
+  scheduleByDate[iso].sort().forEach(t => {
+    const tEl = document.createElement('div');
+    tEl.style.cssText = 'background: var(--bg-2); border: 0.5px solid var(--border); padding: 0.75rem; text-align: center; cursor: pointer; font-size: 14px;';
+    tEl.innerText = t;
+    tEl.onclick = () => selectTime(t, tEl);
+    timeContainer.appendChild(tEl);
+  });
+  document.getElementById('time-opts-wrap').style.display = 'block';
+}
+
+function selectTime(t, el) {
+  selectedTime = t;
+  Array.from(el.parentNode.children).forEach(c => c.style.borderColor = 'var(--border)');
+  el.style.borderColor = 'var(--gold)';
+  document.getElementById('payment-method-wrap').style.display = 'block';
+  window.scrollTo({ top: document.getElementById('payment-method-wrap').offsetTop - 50, behavior: 'smooth' });
+}
+
+document.getElementById('btn-process-pay')?.addEventListener('click', async () => {
+  const method = document.getElementById('pay-method').value;
+  if (!selectedDateIso || !selectedTime) return alert('Pilih jadwal terlebih dahulu.');
+  if (!method) return alert('Pilih metode pembayaran.');
+  
+  const name = document.getElementById('f-nama').value.trim();
+  const wa = document.getElementById('f-wa').value.trim();
+  const email = document.getElementById('f-email').value.trim() || 'guest@ro33.org';
+
+  const btn = document.getElementById('btn-process-pay');
+  btn.innerText = 'MEMPROSES...'; btn.disabled = true;
+
+  if (method === 'BCA_MANUAL') {
+    const rnd = Math.floor(Math.random() * 900) + 100;
+    const finalAmount = sessionPrice + rnd;
+    document.getElementById('sesi-payment-section').style.display = 'none';
+    document.getElementById('manual-bca').style.display = 'block';
+    document.getElementById('bca-amount-display').innerText = 'Rp ' + finalAmount.toLocaleString('id-ID');
+    document.getElementById('btn-wa-manual').onclick = () => {
+        const text = `Halo Admin Ro33! Saya sudah transfer Manual BCA untuk Sesi Personal.\nNama: ${name}\nJadwal: ${selectedDateIso} ${selectedTime}\nNominal: Rp ${finalAmount.toLocaleString('id-ID')}`;
+        window.location.href = `https://wa.me/62895325633487?text=${encodeURIComponent(text)}`;
+    };
+    return;
+  }
+
+  try {
+    const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im5scmdkaHBtc2l0dHV3aWlpbmRxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQ0NDM2MDUsImV4cCI6MjA4OTgwMzYwNX0.2zDvAe28Ho3BWUZC2Sxk7-PopwW0do2139xelPgEwLo';
+    const response = await fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/tripay-create-payment', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'apikey': anonKey, 'Authorization': `Bearer ${anonKey}` },
+      body: JSON.stringify({ subscriptionType:'ro33_sesi', paymentMethod:method, userName:name, userEmail:email, phoneNumber:wa, amount:sessionPrice, productName:`Ro33 Sesi (${selectedDateIso} ${selectedTime})`, returnUrl: window.location.href })
+    });
+    const data = await response.json();
+    
+    if(!data.success) throw new Error(data.error || data.message || 'Gagal generate payment');
+
+    document.getElementById('sesi-payment-section').style.display = 'none';
+    document.getElementById('tripay-instructions').style.display = 'block';
+    
+    if (['QRIS', 'SHOPEEPAY', 'OVO', 'DANA'].includes(method) && data.qrUrl) { 
+        document.getElementById('qris-area').style.display = 'block'; 
+        document.getElementById('qris-img').src = data.qrUrl; 
+    } else if (data.pay_code) { 
+        document.getElementById('va-area').style.display = 'block'; 
+        document.getElementById('va-number').innerText = data.pay_code; 
+    }
+    document.getElementById('btn-wa-tripay').onclick = () => window.location.href = `https://wa.me/62895325633487?text=Konfirmasi Pembayaran Ro33 Ref: ${data.reference}`;
+  } catch (e) { 
+      alert('Terjadi kesalahan: ' + e.message); 
+      btn.innerText = 'Selesaikan Pembayaran →'; 
+      btn.disabled = false; 
+  }
+});
+
 document.addEventListener('DOMContentLoaded', () => {
   const params = new URLSearchParams(window.location.search);
   if (params.has('en')) {
@@ -1972,7 +2132,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Trigger ViewContent via Edge Function CAPI
   const eventIdView = 'view_' + new Date().getTime() + '_' + Math.floor(Math.random() * 1000);
-
 
   fetch('https://nlrgdhpmsittuwiiindq.supabase.co/functions/v1/capi-universal', {
     method: 'POST',
@@ -1986,6 +2145,7 @@ document.addEventListener('DOMContentLoaded', () => {
       userData: { client_user_agent: navigator.userAgent }
     })
   }).catch(err => console.error('CAPI ViewContent Error:', err));
-});</script>
+});
+</script>
 </body>
 </html>
