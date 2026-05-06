@@ -1776,7 +1776,8 @@ function setLanguage(lang) {
     sigBadges[2].innerHTML = translations[lang]['sig-b-3'];
   }
 
-  document.querySelector('.signature-card + p').innerHTML = translations[lang]['sig-b-footnote'];
+  const sigFootnote = document.querySelector('.signature-card + p');
+  if (sigFootnote) sigFootnote.innerHTML = translations[lang]['sig-b-footnote'];
 
   // Executive Dilemma
   const cardSec = document.querySelector('.card-section');
@@ -1798,10 +1799,10 @@ function setLanguage(lang) {
   // About Ro33
   const aboutSec = document.querySelectorAll('section')[1];
   if (aboutSec) {
-    aboutSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['sig-eyebrow'];
-    aboutSec.querySelector('.section-title').innerHTML = translations[lang]['about-sec-title'];
-    aboutSec.querySelector('.section-body').innerHTML = translations[lang]['about-sec-desc'];
-    aboutSec.querySelector('.location-badge').innerHTML = translations[lang]['location-badge'];
+    const ae = aboutSec.querySelector('.section-eyebrow'); if (ae) ae.innerHTML = translations[lang]['sig-eyebrow'];
+    const at = aboutSec.querySelector('.section-title'); if (at) at.innerHTML = translations[lang]['about-sec-title'];
+    const ab = aboutSec.querySelector('.section-body'); if (ab) ab.innerHTML = translations[lang]['about-sec-desc'];
+    const al = aboutSec.querySelector('.location-badge'); if (al) al.innerHTML = translations[lang]['location-badge'];
   }
 
   // Real Evidence
@@ -1817,8 +1818,8 @@ function setLanguage(lang) {
   // What we do
   const weDoSec = document.querySelectorAll('section')[3];
   if (weDoSec) {
-    weDoSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['p-sec-eyebrow'];
-    weDoSec.querySelector('.section-title').innerHTML = translations[lang]['p-sec-title'];
+    const we = weDoSec.querySelector('.section-eyebrow'); if (we) we.innerHTML = translations[lang]['p-sec-eyebrow'];
+    const wt = weDoSec.querySelector('.section-title'); if (wt) wt.innerHTML = translations[lang]['p-sec-title'];
     
     const pillars = weDoSec.querySelectorAll('.pillar');
     pillars.forEach((p, i) => {
