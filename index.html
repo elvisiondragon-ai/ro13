@@ -2130,6 +2130,18 @@ document.addEventListener('DOMContentLoaded', () => {
     setLanguage('id');
   }
 
+  if (params.has('sesi')) {
+    document.querySelector('.form-wrap').style.display = 'none';
+    document.getElementById('sesi-payment-section').style.display = 'block';
+    
+    // Smooth scroll to the payment section slightly after load to ensure rendering
+    setTimeout(() => {
+        window.scrollTo({ top: document.getElementById('sesi-payment-section').offsetTop - 100, behavior: 'smooth' });
+    }, 500);
+    
+    loadSchedule();
+  }
+
   // Trigger ViewContent via Edge Function CAPI
   const eventIdView = 'view_' + new Date().getTime() + '_' + Math.floor(Math.random() * 1000);
 
