@@ -1047,7 +1047,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 
 <div class="sep"></div>
 
-<section>
+<section id="about-section">
   <p class="section-eyebrow">Tentang Ro33</p>
   <h2 class="section-title">Bukan sekadar<br><em>pertemuan biasa.</em></h2>
   <p class="section-body">
@@ -1073,7 +1073,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
   </div>
 </section>
 
-<section>
+<section id="selection-section">
   <p class="section-eyebrow">Seleksi Alami</p>
   <h2 class="section-title">Untuk siapa<br><em>Ro33 ini.</em></h2>
   <p class="section-body">Lingkaran ini kecil dengan sengaja. Bukan eksklusif karena gengsi — tapi karena nilai hanya tercipta ketika setiap orang di ruangan membawa sesuatu yang bisa diisi dan mengisi.</p>
@@ -1103,7 +1103,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 <div class="sep"></div>
 
 <!-- GOV SECTION -->
-<section>
+<section id="features-section">
   <p class="section-eyebrow">Yang Anda Dapatkan</p>
   <h2 class="section-title">Ini bukan sekadar<br><em>pertemuan biasa.</em></h2>
   <p class="section-body">Duduk di meja yang sama dengan orang-orang yang tidak akan Anda temukan di seminar manapun — secara casual, humble, tanpa agenda tersembunyi.</p>
@@ -1244,7 +1244,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 <div class="sep"></div>
 
 <!-- FLOW SECTION -->
-<section style="background: var(--bg-2); padding: 4rem 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+<section id="default-process-section" style="background: var(--bg-2); padding: 4rem 2rem; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
   <p class="section-eyebrow">Proses</p>
   <h2 class="section-title">Bagaimana kita<br><em>mulai terhubung.</em></h2>
   
@@ -1746,10 +1746,10 @@ function setLanguage(lang) {
   document.querySelector('.signature-sub').innerHTML = translations[lang]['sig-sub'];
   
   const sigBodies = document.querySelectorAll('.signature-body');
-  if (sigBodies.length >= 3) {
-    sigBodies[0].innerHTML = translations[lang]['sig-body-1'];
-    sigBodies[1].innerHTML = translations[lang]['sig-body-2'];
-    sigBodies[2].innerHTML = translations[lang]['sig-meaning-desc'];
+  if (sigBodies.length >= 1) {
+    if (sigBodies[0]) sigBodies[0].innerHTML = translations[lang]['sig-body-1'];
+    if (sigBodies[1]) sigBodies[1].innerHTML = translations[lang]['sig-body-2'];
+    if (sigBodies[2]) sigBodies[2].innerHTML = translations[lang]['sig-meaning-desc'];
     if (sigBodies[3]) sigBodies[3].innerHTML = translations[lang]['sig-m-num-desc'];
   }
 
@@ -1761,7 +1761,8 @@ function setLanguage(lang) {
     sigPillars[3].innerHTML = translations[lang]['sig-p4-text'];
   }
 
-  document.querySelector('.signature-meaning-label').innerHTML = translations[lang]['sig-meaning-label'];
+  const sigMeaningLabel = document.querySelector('.signature-meaning-label');
+  if (sigMeaningLabel) sigMeaningLabel.innerHTML = translations[lang]['sig-meaning-label'];
   
   const meaningTexts = document.querySelectorAll('.meaning-text');
   if (meaningTexts.length >= 2) {
@@ -1797,7 +1798,7 @@ function setLanguage(lang) {
   });
 
   // About Ro33
-  const aboutSec = document.querySelectorAll('section')[1];
+  const aboutSec = document.getElementById('about-section');
   if (aboutSec) {
     const ae = aboutSec.querySelector('.section-eyebrow'); if (ae) ae.innerHTML = translations[lang]['sig-eyebrow'];
     const at = aboutSec.querySelector('.section-title'); if (at) at.innerHTML = translations[lang]['about-sec-title'];
@@ -1816,42 +1817,59 @@ function setLanguage(lang) {
   renderTestimonies(lang);
 
   // What we do
-  const weDoSec = document.querySelectorAll('section')[3];
+  const weDoSec = document.getElementById('features-section');
   if (weDoSec) {
     const we = weDoSec.querySelector('.section-eyebrow'); if (we) we.innerHTML = translations[lang]['p-sec-eyebrow'];
     const wt = weDoSec.querySelector('.section-title'); if (wt) wt.innerHTML = translations[lang]['p-sec-title'];
     
     const pillars = weDoSec.querySelectorAll('.pillar');
-    pillars.forEach((p, i) => {
-      p.querySelector('.pillar-title').innerHTML = translations[lang][`p${i+1}-title`];
-      p.querySelector('.pillar-desc').innerHTML = translations[lang][`p${i+1}-desc`];
-    });
+    if (pillars.length > 0) {
+      pillars.forEach((p, i) => {
+        const pt = p.querySelector('.pillar-title');
+        const pd = p.querySelector('.pillar-desc');
+        if (pt) pt.innerHTML = translations[lang][`p${i+1}-title`];
+        if (pd) pd.innerHTML = translations[lang][`p${i+1}-desc`];
+      });
+    } else {
+      // If pillars are direct children of a grid (as in GOV SECTION)
+      const items = weDoSec.querySelectorAll('div[style*="background: var(--bg-2)"]');
+      items.forEach((p, i) => {
+        const pt = p.querySelector('p[style*="font-family: \'Cormorant Garamond\'"]');
+        const pd = p.querySelector('p[style*="font-size: 13px"]');
+        if (pt) pt.innerHTML = translations[lang][`p${i+1}-title`];
+        if (pd) pd.innerHTML = translations[lang][`p${i+1}-desc`];
+      });
+    }
   }
 
   // Selection
-  const selectSec = document.querySelectorAll('section')[4];
+  const selectSec = document.getElementById('selection-section');
   if (selectSec) {
     selectSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['f-sec-eyebrow'];
     selectSec.querySelector('.section-title').innerHTML = translations[lang]['f-sec-title'];
     selectSec.querySelector('.section-body').innerHTML = translations[lang]['f-sec-desc'];
     
     const fitLabels = selectSec.querySelectorAll('.fit-label');
-    fitLabels[0].innerHTML = translations[lang]['f-col1-label'];
-    fitLabels[1].innerHTML = translations[lang]['f-col2-label'];
+    if (fitLabels[0]) fitLabels[0].innerHTML = translations[lang]['f-col1-label'];
+    if (fitLabels[1]) fitLabels[1].innerHTML = translations[lang]['f-col2-label'];
 
     const fitLists = selectSec.querySelectorAll('.fit-list');
-    const listYes = fitLists[0].querySelectorAll('li');
-    listYes.forEach((li, i) => {
-      li.innerHTML = translations[lang][`f-li-yes-${i+1}`];
-    });
-    const listNo = fitLists[1].querySelectorAll('li');
-    listNo.forEach((li, i) => {
-      li.innerHTML = translations[lang][`f-li-no-${i+1}`];
-    });
+    if (fitLists[0]) {
+      const listYes = fitLists[0].querySelectorAll('li');
+      listYes.forEach((li, i) => {
+        if (translations[lang][`f-li-yes-${i+1}`]) li.innerHTML = translations[lang][`f-li-yes-${i+1}`];
+      });
+    }
+    if (fitLists[1]) {
+      const listNo = fitLists[1].querySelectorAll('li');
+      listNo.forEach((li, i) => {
+        if (translations[lang][`f-li-no-${i+1}`]) li.innerHTML = translations[lang][`f-li-no-${i+1}`];
+      });
+    }
   }
 
   // Form Section
-  const formSec = document.querySelectorAll('section')[5];
+  const formSec = document.getElementById('default-form-section');
   if (formSec) {
     formSec.querySelector('.section-eyebrow').innerHTML = translations[lang]['form-sec-eyebrow'];
     formSec.querySelector('.section-title').innerHTML = translations[lang]['form-sec-title'];
@@ -1882,8 +1900,8 @@ function setLanguage(lang) {
     });
 
     formSec.querySelector('.form-submit').innerHTML = translations[lang]['form-submit'];
-    formSec.querySelector('.form-success-title').innerHTML = translations[lang]['form-success-title'];
-    formSec.querySelector('.form-success-msg').innerHTML = translations[lang]['form-success-msg'];
+    const st = formSec.querySelector('.form-success-title'); if (st) st.innerHTML = translations[lang]['form-success-title'];
+    const sm = formSec.querySelector('.form-success-msg'); if (sm) sm.innerHTML = translations[lang]['form-success-msg'];
   }
 
   // Footer
@@ -2166,4 +2184,3 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
 </body>
 </html>
-l>
