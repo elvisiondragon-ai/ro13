@@ -1336,20 +1336,135 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 </section>
 
 <!-- SESI PAYMENT SECTION (HIDDEN BY DEFAULT, SHOWN ON SUBMIT IF ?sesi IS PRESENT) -->
-<section id="sesi-payment-section" style="display:none; padding: 4rem 2rem; max-width: 600px; margin: 0 auto;">
+<style>
+.booked-stamp {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) rotate(-15deg);
+  border: 2.5px solid rgba(180, 40, 40, 0.85);
+  color: rgba(180, 40, 40, 0.85);
+  padding: 3px 8px;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  pointer-events: none;
+  white-space: nowrap;
+  font-family: 'DM Sans', sans-serif;
+}
+.slot-booked {
+  position: relative;
+  opacity: 0.55;
+  cursor: not-allowed;
+  background: var(--bg-2);
+  border: 0.5px solid var(--border);
+  padding: 0.65rem;
+  text-align: center;
+  font-size: 12px;
+  color: var(--text-muted);
+  overflow: hidden;
+}
+.price-warning {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--gold);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  padding: 1rem 1.5rem;
+  border: 0.5px solid rgba(184,149,90,0.4);
+  background: rgba(184,149,90,0.05);
+  letter-spacing: 0.02em;
+  line-height: 1.6;
+}
+</style>
+
+<section id="sesi-payment-section" style="display:none; padding: 4rem 2rem; max-width: 640px; margin: 0 auto;">
   <p class="section-eyebrow">Langkah Terakhir</p>
   <h2 class="section-title">Ambil <em>Spot Anda</em></h2>
   
-  <div style="background: var(--bg-2); border: 1px solid var(--gold); padding: 3rem 2rem; text-align: center; margin-bottom: 3rem;">
-    <span style="font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; display: block;">Sesi Privat</span>
+  <div style="background: var(--bg-2); border: 1px solid var(--gold); padding: 3rem 2rem; text-align: center; margin-bottom: 1.5rem;">
+    <span style="font-size: 11px; letter-spacing: 0.2em; color: var(--gold); text-transform: uppercase; margin-bottom: 1rem; display: block;">Sesi Privat 1:1</span>
     <div style="font-family: 'Cormorant Garamond', serif; font-size: 3rem; color: var(--gold-light); margin-bottom: 0.5rem;">
       <span style="text-decoration: line-through; color: var(--text-muted); font-size: 1.5rem; margin-right: 10px; opacity: 0.6;">Rp 7.5jt</span>
       Rp 1.000.000
     </div>
-    <p style="font-size: 11px; color: var(--gold); margin-bottom: 2rem;">*Harga naik berdasarkan urutan pendaftar.</p>
   </div>
 
-  <h3 class="section-eyebrow" style="text-align:left;">1. Pilih Jadwal</h3>
+  <!-- PRICE WARNING — BIG -->
+  <div class="price-warning">
+    ⚠️ Harga naik berdasarkan urutan pendaftar.<br>
+    <span style="font-size: 1rem; color: var(--text-muted); font-style: normal; font-family: 'DM Sans', sans-serif; font-size: 0.85rem;">Slot terbatas. Semakin lambat, semakin mahal.</span>
+  </div>
+
+  <!-- BOOKED SCHEDULE VISUAL -->
+  <h3 class="section-eyebrow" style="text-align:left; margin-bottom: 1rem;">Kondisi Jadwal Saat Ini</h3>
+
+  <div id="booked-schedule-visual" style="margin-bottom: 2.5rem;">
+
+    <!-- May 6 — ALL BOOKED -->
+    <div style="margin-bottom: 1.5rem;">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom: 0.75rem;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text);">Selasa, 6 Mei 2026</span>
+        <span style="font-size: 10px; background: rgba(180,40,40,0.15); color: #c03030; border: 1px solid rgba(180,40,40,0.3); padding: 2px 8px; letter-spacing: 0.1em; text-transform: uppercase;">FULL BOOKED</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+        <div class="slot-booked">07:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">08:30<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">10:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">11:30<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">13:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">14:30<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">16:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">19:00<div class="booked-stamp">BOOKED</div></div>
+      </div>
+    </div>
+
+    <!-- May 7 — ALL BOOKED -->
+    <div style="margin-bottom: 1.5rem;">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom: 0.75rem;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text);">Rabu, 7 Mei 2026</span>
+        <span style="font-size: 10px; background: rgba(180,40,40,0.15); color: #c03030; border: 1px solid rgba(180,40,40,0.3); padding: 2px 8px; letter-spacing: 0.1em; text-transform: uppercase;">FULL BOOKED</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+        <div class="slot-booked">07:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">08:30<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">10:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">11:30<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">13:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">14:30<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">16:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">19:00<div class="booked-stamp">BOOKED</div></div>
+      </div>
+    </div>
+
+    <!-- May 8 — ALL BOOKED -->
+    <div style="margin-bottom: 1.5rem;">
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-bottom: 0.75rem;">
+        <span style="font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; color: var(--text);">Kamis, 8 Mei 2026</span>
+        <span style="font-size: 10px; background: rgba(180,40,40,0.15); color: #c03030; border: 1px solid rgba(180,40,40,0.3); padding: 2px 8px; letter-spacing: 0.1em; text-transform: uppercase;">FULL BOOKED</span>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px;">
+        <div class="slot-booked">07:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">08:30<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">10:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">11:30<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">13:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">14:30<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">16:00<div class="booked-stamp">BOOKED</div></div>
+        <div class="slot-booked">19:00<div class="booked-stamp">BOOKED</div></div>
+      </div>
+    </div>
+
+    <!-- Divider -->
+    <div style="border-top: 0.5px solid var(--border); margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem;">
+      <span style="font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); white-space: nowrap;">Slot Tersedia Berikutnya</span>
+      <div style="flex: 1; height: 0.5px; background: var(--border);"></div>
+    </div>
+  </div>
+
+  <!-- LIVE SCHEDULE FROM SUPABASE -->
+  <h3 class="section-eyebrow" style="text-align:left;">Pilih Jadwal Anda</h3>
   <div id="date-opts-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px; margin-bottom: 2rem;"></div>
   
   <div id="time-opts-wrap" style="display:none; margin-bottom: 3rem;">
@@ -1358,7 +1473,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
   </div>
 
   <div id="payment-method-wrap" style="display:none;">
-    <h3 class="section-eyebrow" style="text-align:left;">2. Metode Pembayaran</h3>
+    <h3 class="section-eyebrow" style="text-align:left;">Metode Pembayaran</h3>
     <select id="pay-method" style="width:100%; background:var(--bg-3); border:0.5px solid var(--border); padding:1rem; color:var(--text); appearance:none; margin-bottom: 2rem; font-family: inherit;">
       <option value="" disabled selected>Pilih Pembayaran...</option>
       <option value="QRIS">QRIS (Redirect Aplikasi)</option>
