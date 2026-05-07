@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="id" data-theme="dark" data-lang="id">
 <head>
+  <script>
+    (function() {
+      var V = '1.0.1'; // Change this to force refresh
+      var url = new URL(window.location.href);
+      if (url.searchParams.get('v') !== V) {
+        url.searchParams.set('v', V);
+        window.location.replace(url.toString());
+      } else {
+        url.searchParams.delete('v');
+        history.replaceState(null, '', url.pathname + (url.search === '?' ? '' : url.search) + url.hash);
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <!-- Meta Pixel Code -->
 <script>
 !function(f,b,e,v,n,t,s)
@@ -15,7 +30,7 @@ fbq('init', '3723313531141818');
 fbq('track', 'PageView');
 fbq('track', 'ViewContent');
 </script>
-<noscript><img height="1" width="1" style="display:none"
+<noscript><img loading="lazy" height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
@@ -25,10 +40,10 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Ro33 – Result Origin 33 | Awal Mula Sebuah Hasil Adalah Kita</title>
-<link rel="icon" type="image/png" href="assets/ro13.png">
+<link rel="icon" type="image/png" href="assets/ro13.webp">
 <meta property="og:title" content="Result Origin 33">
 <meta property="og:description" content="Result Origin 33">
-<meta property="og:image" content="https://ro33.org/assets/ro13banner.jpeg">
+<meta property="og:image" content="https://ro33.org/assets/ro13banner.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://ro33.org">
@@ -875,7 +890,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 
       <!-- IMAGE DISPLAY -->
       <div style="margin: 2rem -2.5rem 3rem; border-top: 0.5px solid var(--border); border-bottom: 0.5px solid var(--border); overflow: hidden; background: #000;">
-        <img src="assets/image/ro33_puppeteers.png" alt="Shadow Controllers" style="width: 100%; display: block; opacity: 0.85;">
+        <img loading="lazy" src="assets/image/ro33_puppeteers.webp" alt="Shadow Controllers" style="width: 100%; display: block; opacity: 0.85;">
       </div>
 
       <div class="signature-pillars">
@@ -918,7 +933,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
   <div class="card-grid">
     <!-- Ad 1 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/pici_founder_isolation_1777609557739.png" alt="Founder Isolation" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/pici_founder_isolation_1777609557739.webp" alt="Founder Isolation" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">The Founder's Dilemma</p>
         <h3 class="card-title">Kesuksesan Mengisolasi Anda</h3>
@@ -927,7 +942,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 2 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/pici_restaurant_yesmen_1777609660345.png" alt="Yes Men" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/pici_restaurant_yesmen_1777609660345.webp" alt="Yes Men" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Lingkaran Kepalsuan</p>
         <h3 class="card-title">Anda Dikelilingi 'Yes Men'</h3>
@@ -936,7 +951,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 3 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/pici_pool_network_1777609710488.png" alt="Network" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/pici_pool_network_1777609710488.webp" alt="Network" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Ketimpangan Frekuensi</p>
         <h3 class="card-title">Lingkaran Lama Anda Tidak Relevan</h3>
@@ -945,7 +960,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 4 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/pici_garden_trust_1777609791967.png" alt="Trust" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/pici_garden_trust_1777609791967.webp" alt="Trust" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Filter Kepercayaan</p>
         <h3 class="card-title">Satu Partner Salah = Hancur</h3>
@@ -954,7 +969,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 5 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/pici_yacht_freedom_1777610102149.png" alt="Freedom" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/pici_yacht_freedom_1777610102149.webp" alt="Freedom" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Ilusi Kebebasan</p>
         <h3 class="card-title">Uang Banyak, Waktu Menikmatinya Nol</h3>
@@ -963,7 +978,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 6 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/pici_heli_mountain_1777610118008.png" alt="Altitude" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/pici_heli_mountain_1777610118008.webp" alt="Altitude" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Ketinggian yang Mematikan</p>
         <h3 class="card-title">Di Level Anda, Kesalahan Bukan Lagi Murah</h3>
@@ -972,7 +987,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 7 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/pici_rooftop_mall_1777610141079.png" alt="Paradox" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/pici_rooftop_mall_1777610141079.webp" alt="Paradox" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Paradoks Kekayaan</p>
         <h3 class="card-title">Berhenti Mencari Validasi. Mulai Menguasai.</h3>
@@ -981,7 +996,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 8 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/ro33_female_founder_club_1777636025322.png" alt="Female Founder" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/ro33_female_founder_club_1777636025322.webp" alt="Female Founder" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Satu-satunya Wanita di Meja Itu</p>
         <h3 class="card-title">Anda Sudah Terbiasa. Tapi Bukan Berarti Anda Harus Sendirian.</h3>
@@ -990,7 +1005,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 9 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/ro33_exit_founder_rooftop_1777636040926.png" alt="Exit Founder" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/ro33_exit_founder_rooftop_1777636040926.webp" alt="Exit Founder" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Kemenangan yang Sunyi</p>
         <h3 class="card-title">Anda Berhasil Exit. Sekarang Apa?</h3>
@@ -999,7 +1014,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 10 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/ro33_nextgen_garden_1777636055498.png" alt="Next Gen" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/ro33_nextgen_garden_1777636055498.webp" alt="Next Gen" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Bukan Hadiah. Ujian.</p>
         <h3 class="card-title">Nama Keluarga Anda Membuka Pintu. Tapi Hanya Anda yang Bisa Mempertahankannya.</h3>
@@ -1008,7 +1023,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 11 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/ro33_silent_operator_cafe_1777636070927.png" alt="Silent Operator" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/ro33_silent_operator_cafe_1777636070927.webp" alt="Silent Operator" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Dunia yang Bergeser</p>
         <h3 class="card-title">Anda Membangun Pabrik. Anak Anda Ingin Membangun Platform.</h3>
@@ -1017,7 +1032,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 12 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/ro33_newmoney_beach_1777636084400.png" alt="New Money" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/ro33_newmoney_beach_1777636084400.webp" alt="New Money" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Hasil, Bukan Nama Keluarga</p>
         <h3 class="card-title">Old Money Menolak Anda. Kami Menyeleksi Berdasarkan Pencapaian.</h3>
@@ -1026,7 +1041,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 13 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/ro33_regional_hill_1777636100540.png" alt="Regional Player" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/ro33_regional_hill_1777636100540.webp" alt="Regional Player" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Dari Raja Daerah ke Pemain Nasional</p>
         <h3 class="card-title">Di Kota Anda, Semua Pintu Terbuka. Di Jakarta, Anda Harus Mengetuknya Satu Per Satu.</h3>
@@ -1035,7 +1050,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
     </div>
     <!-- Ad 14 -->
     <div class="card">
-      <div class="card-img-wrap"><img src="assets/image/ro33_patriarch_park_1777636117741.png" alt="Patriarch" loading="lazy"></div>
+      <div class="card-img-wrap"><img loading="lazy" src="assets/image/ro33_patriarch_park_1777636117741.webp" alt="Patriarch" loading="lazy"></div>
       <div class="card-content">
         <p class="card-eyebrow">Beban Setelah Handover</p>
         <h3 class="card-title">Anda Membangun 40 Tahun. Warisan Hanya Butuh 5 Tahun Untuk Hancur.</h3>
@@ -1549,7 +1564,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 <section id="tripay-instructions" style="display:none; text-align: center; padding: 4rem 2rem;">
     <h2 class="section-title">Menunggu <em>Bayar</em></h2>
     <div id="qris-area" style="display:none;">
-        <img id="qris-img" src="" style="max-width: 250px; margin: 0 auto 2rem; border: 10px solid white; border-radius: 10px;">
+        <img loading="lazy" id="qris-img" src="" style="max-width: 250px; margin: 0 auto 2rem; border: 10px solid white; border-radius: 10px;">
         <p style="font-size: 14px; color: var(--text-muted);">Scan QRIS di atas dengan aplikasi m-banking atau e-wallet Anda.</p>
     </div>
     <div id="va-area" style="display:none;">
@@ -1597,56 +1612,56 @@ const testimonies = [
     role: "Penyintas Kanker Stage 4",
     desc: "Melawan diagnosis terminal melalui rekalibrasi frekuensi tubuh.",
     src: "assets/testimony/arif_interview_indo_comp.mp4",
-    poster: "assets/testimony/arif_interview_indo.jpg"
+    poster: "assets/testimony/arif_interview_indo.webp"
   },
   {
     name: "Arif",
     role: "Cellular Recovery",
     desc: "Rahasia pemulihan seluler dan penyelarasan identitas diri.",
     src: "assets/testimony/arifindo_comp.mp4",
-    poster: "assets/testimony/arifindo.jpeg"
+    poster: "assets/testimony/arifindo.webp"
   },
   {
     name: "Habib Umar Assegaf",
     role: "Ustadz / Spiritual",
     desc: "Elevasi spiritual dan kejernihan mental dalam pengabdian.",
     src: "assets/testimony/habib.mp4",
-    poster: "assets/testimony/habib1.jpeg"
+    poster: "assets/testimony/habib1.webp"
   },
   {
     name: "Pak Agus SH., MH.",
     role: "Kepala Intelijen",
     desc: "Keseimbangan batin bagi mereka dengan tanggung jawab tinggi.",
     src: "assets/testimony/agus.mp4",
-    poster: "assets/testimony/agus.jpg"
+    poster: "assets/testimony/agus.webp"
   },
   {
     name: "Dr. Gumilar",
     role: "Hypnotherapist",
     desc: "Perspektif medis mengenai kekuatan pikiran dalam pemulihan.",
     src: "assets/testimony/gumilar.mp4",
-    poster: "assets/testimony/gumilar.jpg"
+    poster: "assets/testimony/gumilar.webp"
   },
   {
     name: "eL Vision – Magnet",
     role: "Problem Solver",
     desc: "Berhenti mengelola masalah, mulai menyelesaikannya dari akar.",
     src: "assets/testimony/magnet.mp4",
-    poster: "assets/testimony/magnet.jpg"
+    poster: "assets/testimony/magnet.webp"
   },
   {
     name: "Lena",
     role: "Entrepreneur",
     desc: "Berpindah dari mentalitas kekurangan menuju kelimpahan nyata.",
     src: "assets/testimony/lena.mp4",
-    poster: "assets/testimony/lena.jpg"
+    poster: "assets/testimony/lena.webp"
   },
   {
     name: "Gen Z",
     role: "Modern Lifestyle",
     desc: "Mental edge yang dibutuhkan untuk navigasi dunia modern.",
     src: "assets/testimony/gen_z.mp4",
-    poster: "assets/testimony/gen_z.jpg"
+    poster: "assets/testimony/gen_z.webp"
   }
 ];
 

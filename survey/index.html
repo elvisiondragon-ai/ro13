@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="id" data-theme="dark" data-lang="id">
 <head>
+  <script>
+    (function() {
+      var V = '1.0.1'; // Change this to force refresh
+      var url = new URL(window.location.href);
+      if (url.searchParams.get('v') !== V) {
+        url.searchParams.set('v', V);
+        window.location.replace(url.toString());
+      } else {
+        url.searchParams.delete('v');
+        history.replaceState(null, '', url.pathname + (url.search === '?' ? '' : url.search) + url.hash);
+      }
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <base href="/">
 <!-- Meta Pixel Code -->
 <script>
@@ -16,7 +31,7 @@ fbq('init', '3723313531141818');
 fbq('track', 'PageView');
 fbq('track', 'ViewContent');
 </script>
-<noscript><img height="1" width="1" style="display:none"
+<noscript><img loading="lazy" height="1" width="1" style="display:none"
 src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
@@ -26,10 +41,10 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 <meta http-equiv="Expires" content="0">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>Ro33 – Result Origin 33 | Awal Mula Sebuah Hasil Adalah Kita</title>
-<link rel="icon" type="image/png" href="assets/ro13.png">
+<link rel="icon" type="image/png" href="assets/ro13.webp">
 <meta property="og:title" content="Result Origin 33">
 <meta property="og:description" content="Result Origin 33">
-<meta property="og:image" content="https://ro33.org/assets/ro13banner.jpeg">
+<meta property="og:image" content="https://ro33.org/assets/ro13banner.webp">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:url" content="https://ro33.org">
@@ -951,56 +966,56 @@ const testimonies = [
     role: "Penyintas Kanker Stage 4",
     desc: "Melawan diagnosis terminal melalui rekalibrasi frekuensi tubuh.",
     src: "assets/testimony/arif_interview_indo_comp.mp4",
-    poster: "assets/testimony/arif_interview_indo.jpg"
+    poster: "assets/testimony/arif_interview_indo.webp"
   },
   {
     name: "Arif",
     role: "Cellular Recovery",
     desc: "Rahasia pemulihan seluler dan penyelarasan identitas diri.",
     src: "assets/testimony/arifindo_comp.mp4",
-    poster: "assets/testimony/arifindo.jpeg"
+    poster: "assets/testimony/arifindo.webp"
   },
   {
     name: "Habib Umar Assegaf",
     role: "Ustadz / Spiritual",
     desc: "Elevasi spiritual dan kejernihan mental dalam pengabdian.",
     src: "assets/testimony/habib.mp4",
-    poster: "assets/testimony/habib1.jpeg"
+    poster: "assets/testimony/habib1.webp"
   },
   {
     name: "Pak Agus SH., MH.",
     role: "Kepala Intelijen",
     desc: "Keseimbangan batin bagi mereka dengan tanggung jawab tinggi.",
     src: "assets/testimony/agus.mp4",
-    poster: "assets/testimony/agus.jpg"
+    poster: "assets/testimony/agus.webp"
   },
   {
     name: "Dr. Gumilar",
     role: "Hypnotherapist",
     desc: "Perspektif medis mengenai kekuatan pikiran dalam pemulihan.",
     src: "assets/testimony/gumilar.mp4",
-    poster: "assets/testimony/gumilar.jpg"
+    poster: "assets/testimony/gumilar.webp"
   },
   {
     name: "eL Vision – Magnet",
     role: "Problem Solver",
     desc: "Berhenti mengelola masalah, mulai menyelesaikannya dari akar.",
     src: "assets/testimony/magnet.mp4",
-    poster: "assets/testimony/magnet.jpg"
+    poster: "assets/testimony/magnet.webp"
   },
   {
     name: "Lena",
     role: "Entrepreneur",
     desc: "Berpindah dari mentalitas kekurangan menuju kelimpahan nyata.",
     src: "assets/testimony/lena.mp4",
-    poster: "assets/testimony/lena.jpg"
+    poster: "assets/testimony/lena.webp"
   },
   {
     name: "Gen Z",
     role: "Modern Lifestyle",
     desc: "Mental edge yang dibutuhkan untuk navigasi dunia modern.",
     src: "assets/testimony/gen_z.mp4",
-    poster: "assets/testimony/gen_z.jpg"
+    poster: "assets/testimony/gen_z.webp"
   }
 ];
 
