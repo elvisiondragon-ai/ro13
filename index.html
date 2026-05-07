@@ -1577,7 +1577,7 @@ src="https://www.facebook.com/tr?id=3723313531141818&ev=PageView&noscript=1"
 
 <div class="sep"></div>
 
-<section style="text-align: center; padding: 4rem 1.5rem;">
+<section id="ecosystem-section" style="text-align: center; padding: 4rem 1.5rem;">
   <p class="section-eyebrow">Strategic Ecosystem</p>
   <h2 class="section-title">Business under<br><em>Ro33 disposal.</em></h2>
   <p class="section-body" style="margin-bottom: 2rem;">Akses ke infrastruktur digital, media, dan teknologi tingkat lanjut untuk mendukung pertumbuhan bisnis para anggota.</p>
@@ -2372,9 +2372,43 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (params.has('sesi')) {
-    // Hide default PICI flow
+    // ── Hide default PICI flow ──
     document.getElementById('default-process-section').style.display = 'none';
     document.getElementById('default-form-section').style.display = 'none';
+
+    // ── Hide irrelevant sections for ?sesi visitors ──
+    const hideIds = ['selection-section','features-section','about-section','ecosystem-section'];
+    hideIds.forEach(id => { const el = document.getElementById(id); if(el){ el.style.display='none'; const sep = el.previousElementSibling; if(sep && sep.classList.contains('sep')) sep.style.display='none'; } });
+    document.querySelectorAll('.card-section, .video-section').forEach(el => { el.style.display='none'; const sep = el.previousElementSibling; if(sep && sep.classList.contains('sep')) sep.style.display='none'; });
+    // Hide written testimony section (the one without id, containing "Dari Mereka yang Ada di Ruangan")
+    document.querySelectorAll('section').forEach(sec => { if(sec.textContent.includes('Dari Mereka yang Ada di Ruangan') || sec.textContent.includes('Pertanyaan Umum')) { sec.style.display='none'; const sep = sec.previousElementSibling; if(sep && sep.classList.contains('sep')) sep.style.display='none'; } });
+
+    // ── Personalized pain-point banner based on ?sesi=value ──
+    const sesiValue = params.get('sesi');
+    const painMap = {
+      'isolation':  { tag: 'Untuk Anda yang Memimpin Sendirian',       headline: 'Semakin tinggi posisimu —<br><em>semakin sedikit yang bisa kau percaya.</em>' },
+      'burnout':    { tag: 'Untuk Anda yang Sukses tapi Kelelahan',     headline: 'Rekening penuh.<br><em>Tapi kenapa susah tidur?</em>' },
+      'factorx':    { tag: 'Untuk Anda yang Sudah Coba Segalanya',      headline: 'Sudah coba semua cara.<br><em>Masih ada yang tidak terjelaskan.</em>' },
+      'tunda':      { tag: 'Untuk Anda yang Menunda Keputusan Besar',   headline: 'Ada keputusan yang Anda tahu<br><em>jawabannya — tapi belum Anda ambil.</em>' },
+      'waktu':      { tag: 'Untuk Anda yang Tidak Punya Waktu',         headline: 'Uang bisa dicari lagi.<br><em>Waktu yang sudah lewat — tidak.</em>' },
+      'rumah':      { tag: 'Untuk Anda yang Menang di Luar tapi Lelah di Dalam', headline: 'Bisnis berjalan.<br><em>Tapi ada yang lebih penting mulai retak.</em>' },
+      'yesman':     { tag: 'Untuk Anda yang Dikelilingi Orang Setuju',  headline: 'Semua orang setuju denganmu.<br><em>Dan itu masalahnya.</em>' },
+      'pola':       { tag: 'Untuk Anda yang Pernah Merasakan Momen Itu', headline: 'Pernah semua terasa mengalir.<br><em>Bagaimana cara kembali ke sana?</em>' },
+      'cerdas':     { tag: 'Untuk Anda yang Pintar tapi Tetap Mentok',  headline: 'Orang paling cerdas<br><em>paling sering datang terlambat minta bantuan.</em>' },
+      'naik':       { tag: 'Harga Naik Setiap Batch',                   headline: 'Dua tipe orang.<br><em>Yang mengangguk — dan yang bergerak.</em>' },
+    };
+
+    const pain = sesiValue && painMap[sesiValue] ? painMap[sesiValue] : { tag: 'Sesi Privat 1:1', headline: 'Ambil <em>Spot Anda</em>' };
+
+    // Inject banner before narrative section
+    const narrativeSec = document.getElementById('sesi-narrative-section');
+    const banner = document.createElement('div');
+    banner.style.cssText = 'max-width:720px; margin:5rem auto 0; padding:0 2rem;';
+    banner.innerHTML = `
+      <p style="font-size:10px;letter-spacing:0.4em;color:var(--gold);text-transform:uppercase;margin-bottom:1rem;">${pain.tag}</p>
+      <h2 style="font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.2;color:var(--text);margin-bottom:3rem;">${pain.headline}</h2>
+    `;
+    narrativeSec.insertBefore(banner, narrativeSec.firstChild);
 
     // Show Session flow
     document.getElementById('sesi-narrative-section').style.display = 'block';
