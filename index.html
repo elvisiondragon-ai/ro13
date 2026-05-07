@@ -2210,7 +2210,9 @@ async function loadSchedule() {
       if (!scheduleByDate[r.slot_date]) scheduleByDate[r.slot_date] = [];
       scheduleByDate[r.slot_date].push(r.slot_time.slice(0, 5));
     });
-    const dates = Object.keys(scheduleByDate).sort();
+    const today = new Date(); today.setHours(0,0,0,0);
+    const tomorrow = new Date(today); tomorrow.setDate(tomorrow.getDate() + 1);
+    const dates = Object.keys(scheduleByDate).filter(iso => new Date(iso) >= tomorrow).sort();
     dtContainer.innerHTML = '';
     dates.forEach(iso => {
       const d = new Date(iso);
