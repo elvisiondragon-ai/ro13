@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Halaman Tidak Ditemukan | Ro33</title>
+    <link rel="icon" type="image/png" href="assets/ro13.png">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #B8955A;
+            --gold-light: #D4B07A;
+            --bg: #0E0C08;
+            --text: #E8DFC8;
+            --text-muted: #8A7F6A;
+            --border: rgba(184,149,90,0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            padding: 2rem;
+            position: relative;
+        }
+
+        /* Classic Decorative Frame */
+        .container::before, .container::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+            opacity: 0.5;
+        }
+
+        .container::before { top: 0; }
+        .container::after { bottom: 0; }
+
+        .error-code {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 300;
+            color: var(--gold);
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.8;
+        }
+
+        h1 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: 300;
+            font-style: italic;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+        }
+
+        p {
+            font-size: 1rem;
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 3rem;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .home-btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            border: 0.5px solid var(--gold);
+            color: var(--gold-light);
+            text-decoration: none;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .home-btn:hover {
+            background: var(--gold);
+            color: var(--bg);
+        }
+
+        .watermark {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 20rem;
+            color: var(--gold);
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="watermark">Ro33</div>
+
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1>Halaman tidak ditemukan.</h1>
+        <p>Mungkin Anda tersesat di balik bayangan, atau halaman yang Anda cari telah berpindah ke origin yang berbeda.</p>
+        <p id="redirect-msg" style="font-size: 0.8rem; margin-top: -2rem; margin-bottom: 2rem; opacity: 0.6;">Kembali ke beranda dalam <span id="countdown">5</span> detik...</p>
+        <a href="/" class="home-btn">Kembali ke Beranda</a>
+        </div>
+
+        <script>
+        let seconds = 5;
+        const countdownEl = document.getElementById('countdown');
+
+        const timer = setInterval(() => {
+            seconds--;
+            countdownEl.textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(timer);
+                window.location.href = "/";
+            }
+        }, 1000);
+        </script>
+        </body>
+</html>
