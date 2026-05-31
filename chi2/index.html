@@ -80,6 +80,21 @@
             min-width: 300px; display: none; border: 2px solid #f1c40f;
             z-index: 1000;
         }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            #ui-panel {
+                top: auto; bottom: 0; left: 0; right: 0;
+                width: 100vw; max-width: 100vw; max-height: 45vh;
+                border-radius: 20px 20px 0 0; border-left: none; border-right: none; border-bottom: none;
+                box-sizing: border-box; padding-bottom: 30px;
+            }
+            #message-box {
+                bottom: 50vh; width: 90%; min-width: auto;
+            }
+            .instructions { margin-bottom: 10px; }
+            h1 { font-size: 1.1rem; }
+        }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
@@ -258,7 +273,11 @@ function init() {
     scene.fog = new THREE.FogExp2(0x1a1a2e, 0.012);
     
     camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 1000);
-    camera.position.set(20, 5, 25); 
+    if (window.innerWidth < 768) {
+        camera.position.set(0, 5, 45); // Mundur agar terlihat full di HP
+    } else {
+        camera.position.set(20, 5, 25); 
+    }
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -463,12 +482,23 @@ function init() {
 
     window.addEventListener('resize', onWindowResize, false);
     container.addEventListener('click', onMouseClick, false);
+    container.addEventListener('touchstart', onMouseClick, {passive: false});
 }
 
 // Fitur Klik 3D untuk menandai Stuck
 function onMouseClick(event) {
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+    let clientX = event.clientX;
+    let clientY = event.clientY;
+    
+    if (event.changedTouches && event.changedTouches.length > 0) {
+        clientX = event.changedTouches[0].clientX;
+        clientY = event.changedTouches[0].clientY;
+    } else if (clientX === undefined) {
+        return; // Safeguard if not a mouse or touch event
+    }
+
+    mouse.x = (clientX / window.innerWidth) * 2 - 1;
+    mouse.y = -(clientY / window.innerHeight) * 2 + 1;
 
     raycaster.setFromCamera(mouse, camera);
     const intersects = raycaster.intersectObjects(allClickableMeshes);
