@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EL Vision Chi Points</title>
     <style>
-        body { margin: 0; overflow: hidden; background-color: #1a1a2e; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { margin: 0; overflow: hidden; background-color: #1a1a2e; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; }
+        
         #canvas-container { width: 100vw; height: 100vh; cursor: crosshair; }
         
         #ui-panel {
@@ -83,14 +84,17 @@
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
+            body { display: block; }
+            #canvas-container { height: 50vh; }
             #ui-panel {
-                top: auto; bottom: 0; left: 0; right: 0;
-                width: 100vw; max-width: 100vw; max-height: 45vh;
-                border-radius: 20px 20px 0 0; border-left: none; border-right: none; border-bottom: none;
+                position: relative;
+                top: 0; left: 0; right: 0;
+                width: 100vw; max-width: 100vw; height: 50vh; max-height: 50vh;
+                border-radius: 0; border: none; border-top: 1px solid rgba(255,255,255,0.2);
                 box-sizing: border-box; padding-bottom: 30px;
             }
             #message-box {
-                bottom: 50vh; width: 90%; min-width: auto;
+                bottom: 52vh; width: 90%; min-width: auto;
             }
             .instructions { margin-bottom: 10px; }
             h1 { font-size: 1.1rem; }
@@ -280,7 +284,14 @@ function init() {
     }
 
     renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    
+    // Initial size based on container
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    renderer.setSize(width, height);
+    camera.aspect = width / height;
+    camera.updateProjectionMatrix();
+    
     renderer.setPixelRatio(window.devicePixelRatio);
     container.appendChild(renderer.domElement);
 
@@ -583,9 +594,13 @@ function animateFilteredFlow(particlesArray, toBody, targetPartName) {
 }
 
 function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
+    const container = document.getElementById('canvas-container');
+    const width = container.clientWidth;
+    const height = container.clientHeight;
+    
+    camera.aspect = width / height;
     camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, height);
 }
 
 function animate() {
