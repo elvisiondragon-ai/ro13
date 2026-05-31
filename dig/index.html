@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Game: Gali Pasukan Chi</title>
+    <style>
+        :root {
+            /* Underground / Dirt Theme */
+            --bg-dark: #2a1610; /* Latar paling belakang (sangat gelap) */
+            --board-bg: #1f110c; /* Latar papan grid */
+            --block-bg: #4a2f1d; /* Warna balok tanah yang belum digali */
+            --block-border: #331e11;
+            --block-dug: #140b07; /* Warna lubang yang sudah digali */
+            --block-dug-border: #0a0503;
+            
+            /* UI Elements */
+            --gold: #f1c40f;
+            --gold-dim: #b8955a;
+            --text-color: #f5f6fa;
+            --warning-color: #e84118;
+            --chi-icon: "⚡";
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            user-select: none;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-color);
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            /* Subtle dirt texture for the whole body */
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+
+        /* ----- HEADER (Status Bar) ----- */
+        header {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            z-index: 10;
+        }
+
+        .status-bar {
+            background: rgba(42, 22, 16, 0.9);
+            border: 2px solid var(--gold-dim);
+            border-radius: 25px;
+            padding: 10px 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .status-title {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        .status-bar-inner {
+            flex: 1;
+            height: 12px;
+            background: rgba(0,0,0,0.5);
+            border-radius: 6px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+        }
+
+        .status-progress {
+            height: 100%;
+            background: var(--gold);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .status-score {
+            color: var(--gold);
+            font-weight: bold;
+            font-size: 1.2rem;
+            min-width: 60px;
+            text-align: right;
+        }
+
+        .btn-reset {
+            background: transparent;
+            border: 1px solid var(--warning-color);
+            color: var(--warning-color);
+            padding: 5px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+            margin-left: 10px;
+        }
+
+        .btn-reset:hover {
+            background: var(--warning-color);
+            color: white;
+        }
+
+        /* ----- GAME BOARD (Grid Layout) ----- */
+        #game-board {
+            flex: 1;
+            padding: 10px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .grid-container {
+            background: var(--board-bg);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.8), 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            max-width: 900px;
+            width: 100%;
+        }
+
+        /* Level Headers (LV1, LV2, dll) */
+        .level-headers {
+            display: flex;
+            margin-left: 160px; /* Lebar label nama */
+            margin-bottom: 5px;
+        }
+
+        .lv-header {
+            flex: 1;
+            text-align: center;
+            color: var(--gold-dim);
+            font-size: 0.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .lane {
+            display: flex;
+            align-items: center;
+            height: 55px;
+            position: relative;
+        }
+
+        .lane-label {
+            width: 160px;
+            font-weight: bold;
+            font-size: 1rem;
+            color: #fff;
+            text-shadow: 1px 1px 2px black;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .blocks-container {
+            display: flex;
+            flex: 1;
+            height: 100%;
+            gap: 5px;
+        }
+
+        /* Kotak Tanah Individu */
+        .block {
+            flex: 1;
+            background-color: var(--block-bg);
+            border: 2px solid var(--block-border);
+            border-radius: 6px;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: inset 2px 2px 5px rgba(255,255,255,0.1), inset -2px -2px 5px rgba(0,0,0,0.3);
+            transition: all 0.1s;
+        }
+
+        /* Gradient kotak tengah untuk memberi kesan 3D (seperti di referensi) */
+        .block::after {
+            content: '';
+            position: absolute;
+            width: 40%;
+            height: 40%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(0,0,0,0.1) 100%);
+            border-radius: 2px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .block:hover {
+            filter: brightness(1.1);
+        }
+
+        .block:active {
+            transform: scale(0.95);
+        }
+
+        /* State ketika blok sudah digali */
+        .block.dug {
+            background-color: var(--block-dug);
+            border-color: var(--block-dug-border);
+            box-shadow: inset 0 5px 10px rgba(0,0,0,0.8);
+            cursor: default;
+        }
+        
+        .block.dug::after {
+            display: none; /* Hilangkan efek 3D tengah jika sudah digali */
+        }
+
+        /* Teks Syarat Chi (misal: "12 ⚡") di atas blok */
+        .req-text {
+            position: absolute;
+            top: 2px;
+            left: 4px;
+            font-size: 0.65rem;
+            color: #ffb142; /* Oranye terang */
+            font-weight: bold;
+            z-index: 2;
+            text-shadow: 1px 1px 2px black;
+        }
+
+        /* Overlay Peringatan Mentok */
+        #warning-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 100;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            backdrop-filter: blur(3px);
+        }
+
+        #warning-overlay.show {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .warning-box {
+            background: #2f3542;
+            border: 4px solid var(--warning-color);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            max-width: 400px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            transform: scale(0.8);
+            transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            color: white;
+        }
+
+        #warning-overlay.show .warning-box {
+            transform: scale(1);
+        }
+
+        .warning-box h2 {
+            color: var(--warning-color);
+            margin-bottom: 15px;
+            font-size: 2rem;
+            text-transform: uppercase;
+        }
+
+        .warning-box p {
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .btn-close {
+            background: var(--warning-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.1s;
+            box-shadow: 0 4px 0 #c0392b;
+        }
+
+        .btn-close:active {
+            transform: translateY(4px);
+            box-shadow: 0 0 0 #c0392b;
+        }
+
+        .zen-mode {
+            animation: zenPulse 2s infinite alternate;
+        }
+
+        @keyframes zenPulse {
+            0% { box-shadow: inset 0 0 20px var(--gold); }
+            100% { box-shadow: inset 0 0 100px var(--chi-color); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .status-bar { padding: 8px 15px; }
+            .lane-label { width: 100px; font-size: 0.8rem; }
+            .level-headers { margin-left: 100px; }
+            .lv-header { font-size: 0.6rem; }
+            .req-text { font-size: 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="status-bar">
+            <div class="status-title" id="status-title-text">Pasukan Chi: 👑 Ubun-ubun (Lv 0)</div>
+            <div class="status-bar-inner">
+                <div class="status-progress" id="chi-progress"></div>
+            </div>
+            <div class="status-score"><span id="total-chi">0</span> / 90</div>
+            <button class="btn-reset" onclick="resetGame()">↻ Reset</button>
+        </div>
+    </header>
+
+    <div id="game-board">
+        <div class="grid-container">
+            <div class="level-headers">
+                <div class="lv-header">LV1</div>
+                <div class="lv-header">LV2</div>
+                <div class="lv-header">LV3</div>
+                <div class="lv-header">LV4</div>
+                <div class="lv-header">LV5</div>
+                <div class="lv-header">LV6</div>
+                <div class="lv-header">LV7</div>
+                <div class="lv-header">LV8</div>
+                <div class="lv-header">LV9</div>
+            </div>
+            <div id="lanes-wrapper">
+                <!-- Jalur galian akan di-generate via JS -->
+            </div>
+        </div>
+    </div>
+
+    <div id="warning-overlay">
+        <div class="warning-box">
+            <h2>⚠️ BENTURAN BATU!</h2>
+            <p id="warning-text">Alat Anda tidak cukup kuat. Anda butuh lebih banyak Pasukan Chi untuk menembus kedalaman ini. Gali titik lain dulu!</p>
+            <p style="font-size: 0.95rem; color: #ced6e0; margin-bottom: 25px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px;">
+                Syarat Total Chi: <span id="req-chi" style="color: var(--gold); font-weight: bold; font-size: 1.2rem;">0</span>
+            </p>
+            <button class="btn-close" onclick="closeWarning()">Gali Tempat Lain</button>
+        </div>
+    </div>
+
+    <script>
+        const holes = [
+            { id: 1, name: "👑 Ubun-ubun" },
+            { id: 2, name: "👁️ Mata" },
+            { id: 3, name: "🫀 Leher" },
+            { id: 4, name: "💛 Dada" },
+            { id: 5, name: "🔥 Ulu Hati" },
+            { id: 6, name: "🌀 Perut" },
+            { id: 7, name: "🌱 Cakra Akar" },
+            { id: 8, name: "💪 Bahu" },
+            { id: 9, name: "🌊 Rusuk" },
+            { id: 10, name: "👂 Telinga" }
+        ];
+
+        // State Array: Menyimpan level (kedalaman) saat ini untuk tiap lubang (index 0 - 9)
+        const levels = new Array(10).fill(0);
+        const MAX_LEVEL = 9;
+        const TOTAL_MAX_CHI = 90;
+
+        // Rumus Keseimbangan: Butuh Total Pasukan Chi berapa untuk MENGGALI KE level tertentu?
+        // Index = Target Level yang ingin dicapai (Misal index 4 berarti syarat masuk Lv 4)
+        const requirementChi = {
+            1: 0, 2: 0, 3: 0,
+            4: 12, // Untuk masuk Lv 4 butuh 12 Pasukan Chi
+            5: 16,
+            6: 20, // Sesuai prompt: ke lv 6 butuh 20
+            7: 30,
+            8: 45,
+            9: 60  // Untuk mencapai level tertinggi (9), butuh keseimbangan besar
+        };
+
+        const wrapper = document.getElementById('lanes-wrapper');
+        const totalChiEl = document.getElementById('total-chi');
+        const chiProgress = document.getElementById('chi-progress');
+        const statusTitle = document.getElementById('status-title-text');
+        const warningOverlay = document.getElementById('warning-overlay');
+        const reqChiSpan = document.getElementById('req-chi');
+        let isZenMode = false;
+
+        function initGame() {
+            wrapper.innerHTML = ''; // Clear for reset
+            holes.forEach((hole, index) => {
+                const lane = document.createElement('div');
+                lane.className = 'lane';
+
+                // Label Nama
+                const label = document.createElement('div');
+                label.className = 'lane-label';
+                label.innerHTML = `<span style="color: var(--gold-dim); font-size: 0.8rem; margin-right: 5px;">${hole.id}</span> ${hole.name}`;
+                lane.appendChild(label);
+
+                // Blocks Container
+                const blocksContainer = document.createElement('div');
+                blocksContainer.className = 'blocks-container';
+
+                // Buat 9 block (level)
+                for(let i=1; i<=9; i++) {
+                    const block = document.createElement('div');
+                    block.className = 'block';
+                    block.id = `block-${index}-${i}`;
+                    block.onclick = () => dig(index, i);
+
+                    // Tambahkan teks syarat Chi di atas blok tertentu
+                    if (i === 4 || i === 6) {
+                        const reqText = document.createElement('div');
+                        reqText.className = 'req-text';
+                        reqText.innerHTML = `${requirementChi[i]} ⚡`;
+                        block.appendChild(reqText);
+                    } else if (i === 9) {
+                        const reqText = document.createElement('div');
+                        reqText.className = 'req-text';
+                        reqText.innerHTML = `ALL ⚡`; // Atau 60
+                        block.appendChild(reqText);
+                    }
+
+                    blocksContainer.appendChild(block);
+                }
+
+                lane.appendChild(blocksContainer);
+                wrapper.appendChild(lane);
+            });
+            updateUI(0);
+        }
+
+        function resetGame() {
+            for(let i=0; i<levels.length; i++) {
+                levels[i] = 0;
+            }
+            isZenMode = false;
+            document.body.classList.remove('zen-mode');
+            updateUI(0);
+        }
+
+        function getTotalChi() {
+            return levels.reduce((sum, current) => sum + current, 0);
+        }
+
+        // Modifikasi fungsi dig untuk mendukung klik langsung pada blok
+        function dig(laneIndex, clickedLevel) {
+            if (isZenMode) return;
+
+            const currentLevel = levels[laneIndex];
+            
+            // Hanya bisa menggali level berikutnya (current + 1)
+            // Jika klik blok yang jauh di depan, kita coba gali berurutan
+            if (clickedLevel > currentLevel + 1) {
+                // Tampilkan info click blok selanjutnya
+                const targetLevel = currentLevel + 1;
+                const required = requirementChi[targetLevel] || 0;
+                if (getTotalChi() < required) {
+                     showWarning(targetLevel, required);
+                     shakeLane(laneIndex);
+                }
+                return;
+            }
+
+            // Jika klik blok yang sudah digali
+            if (clickedLevel <= currentLevel) return;
+
+            const targetLevel = currentLevel + 1;
+            const totalChi = getTotalChi();
+            const required = requirementChi[targetLevel] || 0;
+
+            // CEK RUMUS KESEIMBANGAN
+            if (totalChi < required) {
+                showWarning(targetLevel, required);
+                shakeLane(laneIndex);
+                return;
+            }
+
+            // SUKSES MENGGALI
+            levels[laneIndex] = targetLevel;
+            updateUI(laneIndex);
+            checkWinCondition();
+        }
+
+        function shakeLane(index) {
+            const lane = wrapper.children[index];
+            lane.style.transform = 'translateX(-5px)';
+            setTimeout(() => lane.style.transform = 'translateX(5px)', 50);
+            setTimeout(() => lane.style.transform = 'translateX(-5px)', 100);
+            setTimeout(() => lane.style.transform = 'translateX(0)', 150);
+        }
+
+        function updateUI(lastActiveIndex = 0) {
+            const total = getTotalChi();
+            totalChiEl.innerText = total;
+            
+            // Update Progress Bar
+            const percent = (total / TOTAL_MAX_CHI) * 100;
+            chiProgress.style.width = `${percent}%`;
+
+            // Update Status Title
+            const activeHole = holes[lastActiveIndex];
+            const activeLv = levels[lastActiveIndex];
+            statusTitle.innerHTML = `Pasukan Chi: ${activeHole.name} (Lv ${activeLv})`;
+
+            // Update Blocks Visual
+            levels.forEach((lv, laneIndex) => {
+                for(let i=1; i<=9; i++) {
+                    const block = document.getElementById(`block-${laneIndex}-${i}`);
+                    if (i <= lv) {
+                        block.classList.add('dug');
+                    } else {
+                        block.classList.remove('dug');
+                    }
+                }
+            });
+        }
+
+        function showWarning(targetLv, req) {
+            reqChiSpan.innerText = `${req} (Total Anda: ${getTotalChi()})`;
+            warningOverlay.classList.add('show');
+        }
+
+        function closeWarning() {
+            warningOverlay.classList.remove('show');
+        }
+
+        function checkWinCondition() {
+            const isWin = levels.every(lv => lv === MAX_LEVEL);
+            if(isWin && !isZenMode) {
+                isZenMode = true;
+                setTimeout(() => {
+                    document.body.classList.add('zen-mode');
+                    document.querySelector('.stat-box').style.color = '#7bed9f';
+                    document.querySelector('.stat-box').style.borderColor = '#7bed9f';
+                    alert("🌟 SELAMAT! Seluruh titik telah mencapai Kedalaman ZEN. Anda telah membuka akses penuh Command Center!");
+                }, 800);
+            }
+        }
+
+        // Resize handler agar tunnel tetap pas jika layar diputar
+        window.addEventListener('resize', updateUI);
+
+        // Jalankan game saat diload
+        window.onload = initGame;
+    </script>
+
+</body>
+</html>
