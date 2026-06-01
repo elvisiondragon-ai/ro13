@@ -250,6 +250,39 @@
             transform: scale(1);
         }
 
+        /* Container untuk Batu (Penghalang) */
+        .rock-container {
+            position: absolute;
+            top: 0; bottom: 0; left: 160px; right: 0;
+            display: flex;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .rock-slot {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start; /* Berada di sisi kiri kotak (di batas level) */
+            align-items: center;
+            font-size: 1.2rem;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform: scale(0) rotate(0deg);
+            margin-left: -12px; /* Geser pas ke garis batas */
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.8));
+        }
+
+        .rock-slot.show {
+            opacity: 1;
+            transform: scale(1) rotate(0deg);
+        }
+
+        .rock-slot.destroyed {
+            opacity: 0;
+            transform: scale(1.5) translateY(-20px) rotate(45deg);
+            filter: grayscale(1) brightness(2);
+        }
+
         .level-markers {
             position: absolute;
             left: 160px; /* Offset menyesuaikan lebar label nama */
@@ -264,6 +297,41 @@
         .marker {
             flex: 1;
             border-left: 2px dashed rgba(255,255,255,0.15);
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        .marker.easy-state {
+            background-color: rgba(46, 213, 115, 0.2);
+            box-shadow: inset 0 0 15px rgba(46, 213, 115, 0.4);
+            border: 1px solid rgba(46, 213, 115, 0.6);
+        }
+
+        .marker.hard-state {
+            background-color: rgba(255, 71, 87, 0.2);
+            box-shadow: inset 0 0 15px rgba(255, 71, 87, 0.4);
+            border: 1px solid rgba(255, 71, 87, 0.6);
+        }
+
+        .marker.active-green-state {
+            background-color: rgba(46, 213, 115, 0.4);
+            box-shadow: inset 0 0 20px rgba(46, 213, 115, 0.8), 0 0 10px rgba(46, 213, 115, 0.5);
+            border: 2px solid rgba(46, 213, 115, 1);
+            animation: flowPulse 1s infinite alternate;
+            z-index: 10;
+        }
+
+        @keyframes flowPulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        .req-text {
+            font-size: 0.65rem;
+            color: #ffb142;
+            text-shadow: 1px 1px 2px black;
+            margin-top: 2px;
+            position: absolute;
+            font-weight: bold;
         }
 
         .lane-status {
@@ -357,8 +425,8 @@
         @media (max-width: 768px) {
             h1 { font-size: 1.2rem; }
             .lane-label { font-size: 0.8rem; width: 100px; }
-            .level-markers, .hoe-container, .global-level-headers { left: 100px; margin-left: 100px; }
-            .hoe-slot { font-size: 1rem; }
+            .level-markers, .hoe-container, .rock-container, .global-level-headers { left: 100px; margin-left: 100px; }
+            .hoe-slot, .rock-slot { font-size: 1rem; }
             .global-header-slot { font-size: 0.7rem; }
             .req-text-global { font-size: 0.6rem; padding: 1px 4px; }
         }
@@ -369,7 +437,7 @@
     <div class="surface">
         <h1>Gali Pasukan Chi</h1>
         <div class="stats-container">
-            <div class="stat-box">Total Chi: <span id="total-chi">0</span>/90</div>
+            <div class="stat-box">Total Chi: <span id="total-chi">0</span>/99</div>
             <button class="btn-reset" onclick="resetGame()">↻ Reset</button>
         </div>
     </div>
@@ -383,10 +451,10 @@
 
     <div id="warning-overlay">
         <div class="warning-box">
-            <h2>⚠️ BENTURAN BATU!</h2>
-            <p id="warning-text">Alat Anda tidak cukup kuat. Anda butuh lebih banyak Pasukan Chi untuk menembus kedalaman ini. Gali titik lain dulu!</p>
+            <h2 id="warning-title">⚠️ BENTURAN BATU!</h2>
+            <p id="warning-text">Keseimbangan belum tercapai. Anda tidak bisa menggali lebih dalam sebelum titik lain diratakan.</p>
             <p style="font-size: 0.95rem; color: #ced6e0; margin-bottom: 25px; background: rgba(0,0,0,0.3); padding: 10px; border-radius: 6px;">
-                Syarat Total Chi: <span id="req-chi" style="color: var(--gold); font-weight: bold; font-size: 1.2rem;">0</span>
+                Syarat: <span id="req-chi" style="color: var(--gold); font-weight: bold; font-size: 1.1rem;">-</span>
             </p>
             <button class="btn-close" onclick="closeWarning()">Gali Tempat Lain</button>
         </div>
@@ -394,32 +462,21 @@
 
     <script>
         const holes = [
-            { id: 1, name: "👑 Ubun-ubun" },
-            { id: 2, name: "👁️ Mata" },
-            { id: 3, name: "🫀 Leher" },
-            { id: 4, name: "💛 Dada" },
-            { id: 5, name: "🔥 Ulu Hati" },
-            { id: 6, name: "🌀 Perut" },
-            { id: 7, name: "🌱 Cakra Akar" },
-            { id: 8, name: "💪 Bahu" },
-            { id: 9, name: "🌊 Rusuk" },
-            { id: 10, name: "👂 Telinga" }
+            { id: 1, name: "👑 Ubun-ubun", type: "red" },
+            { id: 2, name: "👁️ Mata", type: "red" },
+            { id: 3, name: "💭 Keinginan", type: "red" }, // Index 2
+            { id: 4, name: "🫀 Leher", type: "green" },
+            { id: 5, name: "💛 Dada", type: "green" },
+            { id: 6, name: "🔥 Ulu Hati", type: "red" },
+            { id: 7, name: "🌀 Perut", type: "red" },
+            { id: 8, name: "🌱 Cakra Akar", type: "green" },
+            { id: 9, name: "💪 Bahu", type: "green" },
+            { id: 10, name: "🌊 Rusuk", type: "green" },
+            { id: 11, name: "👂 Telinga", type: "green" }
         ];
 
-        // State Array: Menyimpan level (kedalaman) saat ini untuk tiap lubang (index 0 - 9)
-        const levels = new Array(10).fill(0);
+        const levels = new Array(11).fill(0);
         const MAX_LEVEL = 9;
-
-        // Rumus Keseimbangan: Butuh Total Pasukan Chi berapa untuk MENGGALI KE level tertentu?
-        const requirementChi = {
-            1: 0, 2: 0, 3: 0,
-            4: 12, // Untuk masuk Lv 4 butuh 12 Pasukan Chi
-            5: 16,
-            6: 20, // Sesuai prompt: ke lv 6 butuh 20
-            7: 30,
-            8: 45,
-            9: 60  // Untuk mencapai level tertinggi (9)
-        };
 
         const board = document.getElementById('game-board');
         const headersContainer = document.getElementById('global-headers');
@@ -427,25 +484,36 @@
         const warningOverlay = document.getElementById('warning-overlay');
         const reqChiSpan = document.getElementById('req-chi');
         let isZenMode = false;
+        let activeGreenPart = -1;
+
+        function rollActiveGreenPart() {
+            let eligible = [];
+            for(let i=0; i<11; i++) {
+                if (i !== 2 && levels[i] >= 5 && levels[i] < 9) {
+                    eligible.push(i);
+                }
+            }
+            if (eligible.length > 0) {
+                if (eligible.length > 1) {
+                    let others = eligible.filter(e => e !== activeGreenPart);
+                    activeGreenPart = others[Math.floor(Math.random() * others.length)];
+                } else {
+                    activeGreenPart = eligible[0];
+                }
+            } else {
+                activeGreenPart = -1;
+            }
+        }
 
         function initGame() {
-            // Build Global Headers
             headersContainer.innerHTML = '';
             for(let i=1; i<=9; i++) {
                 const slot = document.createElement('div');
                 slot.className = 'global-header-slot';
-                
-                if (i === 4 || i === 6) {
-                    slot.innerHTML = `<div class="req-text-global">${requirementChi[i]}⚡</div><div>LV${i}</div>`;
-                } else if (i === 9) {
-                    slot.innerHTML = `<div class="req-text-global">ALL⚡</div><div>LV${i}</div>`;
-                } else {
-                    slot.innerHTML = `<div>LV${i}</div>`;
-                }
+                slot.innerHTML = `<div>LV${i}</div>`;
                 headersContainer.appendChild(slot);
             }
 
-            // Hapus isi board selain headers
             Array.from(board.children).forEach(child => {
                 if(child.id !== 'global-headers') board.removeChild(child);
             });
@@ -455,18 +523,15 @@
                 lane.className = 'lane';
                 lane.onclick = () => dig(index);
 
-                // Blok Tanah Dasar
                 const dirtBlock = document.createElement('div');
                 dirtBlock.className = 'dirt-block';
                 lane.appendChild(dirtBlock);
 
-                // Tunnel (Galian kosong berwarna gelap)
                 const tunnel = document.createElement('div');
                 tunnel.className = 'tunnel';
                 tunnel.id = `tunnel-${index}`;
                 lane.appendChild(tunnel);
 
-                // Tempat Pacul Muncul
                 const hoeContainer = document.createElement('div');
                 hoeContainer.className = 'hoe-container';
                 for(let i=1; i<=9; i++) {
@@ -478,23 +543,32 @@
                 }
                 lane.appendChild(hoeContainer);
 
-                // Label Nama
+                const rockContainer = document.createElement('div');
+                rockContainer.className = 'rock-container';
+                for(let i=1; i<=9; i++) {
+                    const rock = document.createElement('div');
+                    rock.className = 'rock-slot';
+                    rock.id = `rock-${index}-${i}`;
+                    rockContainer.appendChild(rock);
+                }
+                lane.appendChild(rockContainer);
+
                 const label = document.createElement('div');
                 label.className = 'lane-label';
                 label.innerHTML = `<span style="color: var(--gold-dim); font-size: 0.8rem; margin-right: 5px;">${hole.id}</span> ${hole.name}`;
                 lane.appendChild(label);
 
-                // Markers (Hanya garis putus-putus)
                 const markers = document.createElement('div');
                 markers.className = 'level-markers';
                 for(let i=1; i<=9; i++) {
                     const mark = document.createElement('div');
                     mark.className = 'marker';
+                    mark.id = `marker-${index}-${i}`;
+                    mark.style.position = 'relative';
                     markers.appendChild(mark);
                 }
                 lane.appendChild(markers);
 
-                // Status Text
                 const status = document.createElement('div');
                 status.className = 'lane-status';
                 status.id = `status-${index}`;
@@ -511,6 +585,7 @@
                 levels[i] = 0;
             }
             isZenMode = false;
+            activeGreenPart = -1;
             document.body.classList.remove('zen-mode');
             document.querySelector('.stat-box').style.color = 'var(--gold)';
             document.querySelector('.stat-box').style.borderColor = 'var(--gold)';
@@ -522,34 +597,69 @@
         }
 
         function dig(index) {
-            if (isZenMode) return; // Game selesai
+            if (isZenMode) return;
 
             const currentLevel = levels[index];
             const targetLevel = currentLevel + 1;
+            const hole = holes[index];
 
-            if (targetLevel > MAX_LEVEL) {
-                return; 
+            if (targetLevel > MAX_LEVEL) return; 
+
+            // 1. ATURAN AREA MERAH (MATA, UBUN, ULU HATI, PERUT) -> Tertahan ke LV 4
+            // (Keinginan dihandle khusus di bawah)
+            if (hole.type === 'red' && targetLevel === 4) {
+                const greenLv5Count = holes.reduce((count, h, i) => {
+                    if (h.type === 'green' && levels[i] >= 5) return count + 1;
+                    return count;
+                }, 0);
+
+                if (greenLv5Count < 3) {
+                    showWarningLockRed(greenLv5Count);
+                    shakeLane(index);
+                    return;
+                }
             }
 
-            const totalChi = getTotalChi();
-            const required = requirementChi[targetLevel] || 0;
+            // 2. ATURAN KEINGINAN KHUSUS -> Tertahan di LV 4, butuh SEMUA titik lain max
+            if (index === 2 && targetLevel >= 5) {
+                const allOthersDone = levels.every((lv, i) => i === 2 || lv === 9);
+                if (!allOthersDone) {
+                    showWarningKeinginan();
+                    shakeLane(index);
+                    return;
+                }
+            }
 
-            // CEK RUMUS KESEIMBANGAN
-            if (totalChi < required) {
-                showWarning(targetLevel, required);
-                // Getarkan lajur (visual cue tabrakan)
-                const lane = board.children[index];
-                lane.style.transform = 'translateX(-10px)';
-                setTimeout(() => lane.style.transform = 'translateX(10px)', 50);
-                setTimeout(() => lane.style.transform = 'translateX(-10px)', 100);
-                setTimeout(() => lane.style.transform = 'translateX(0)', 150);
-                return;
+            // 3. ATURAN RANDOM GREEN ZONE -> Dari LV 5 ke atas untuk 10 titik lainnya
+            if (index !== 2 && targetLevel >= 6) {
+                if (activeGreenPart !== index) {
+                    showWarningRandomGreen();
+                    shakeLane(index);
+                    return;
+                }
             }
 
             // SUKSES MENGGALI
             levels[index] = targetLevel;
+
+            // Reroll Green Zone jika kita berhasil menggali zona tersebut
+            // Atau jika ini adalah pertama kalinya sebuah titik mencapai LV 5
+            if (index === activeGreenPart || (targetLevel === 5 && activeGreenPart === -1)) {
+                rollActiveGreenPart();
+            }
+
             updateUI();
             checkWinCondition();
+        }
+
+        function shakeLane(index) {
+            const lane = board.children[index + 1]; // +1 karena index 0 adalah global-headers
+            if(lane) {
+                lane.style.transform = 'translateX(-10px)';
+                setTimeout(() => lane.style.transform = 'translateX(10px)', 50);
+                setTimeout(() => lane.style.transform = 'translateX(-10px)', 100);
+                setTimeout(() => lane.style.transform = 'translateX(0)', 150);
+            }
         }
 
         function updateUI() {
@@ -558,14 +668,21 @@
 
             const offsetMobile = window.innerWidth <= 768 ? 100 : 160;
 
+            const greenLv5Count = holes.reduce((count, h, i) => {
+                if (h.type === 'green' && levels[i] >= 5) return count + 1;
+                return count;
+            }, 0);
+            const isRedUnlocked = greenLv5Count >= 3;
+            const allOthersDone = levels.every((lv, i) => i === 2 || lv === 9);
+
             levels.forEach((lv, index) => {
                 const tunnel = document.getElementById(`tunnel-${index}`);
                 const status = document.getElementById(`status-${index}`);
+                const hole = holes[index];
                 
                 if(lv === 0) {
-                    tunnel.style.width = '20px'; // Muncul sedikit saja di kiri
+                    tunnel.style.width = '20px';
                 } else {
-                    // Lebar menyesuaikan grid marker
                     tunnel.style.width = `calc(${offsetMobile}px + ((100% - ${offsetMobile}px) / 9 * ${lv}))`;
                 }
                 
@@ -576,20 +693,104 @@
                     status.innerText = `Lv ${lv}`;
                 }
 
-                // Tampilkan ikon pacul sesuai level yang tergali
                 for(let i=1; i<=9; i++) {
+                    // Update Pacul
                     const hoe = document.getElementById(`hoe-${index}-${i}`);
                     if (i <= lv) {
                         hoe.classList.add('show');
                     } else {
                         hoe.classList.remove('show');
                     }
+
+                    // Update Marker State & Texts
+                    const marker = document.getElementById(`marker-${index}-${i}`);
+                    marker.classList.remove('easy-state', 'hard-state', 'active-green-state');
+                    marker.innerHTML = ``; // Reset text
+
+                    let showRock = false;
+
+                    // A. Tampilan Bawah (LV 1 - 5)
+                    if (i <= 5) {
+                        if (hole.type === 'green') {
+                            marker.classList.add('easy-state');
+                        } else if (hole.type === 'red' && i >= 4) {
+                            marker.classList.add('hard-state');
+                            // Text untuk area merah selain Keinginan di lv 4
+                            if (index !== 2 && i === 4 && !isRedUnlocked && lv < 4) {
+                                marker.innerHTML = `<div class="req-text" style="top: 15px;">3x🟩LV5</div>`;
+                                showRock = true;
+                            }
+                            // Text untuk Keinginan di lv 5
+                            if (index === 2 && i === 5 && !allOthersDone && lv < 5) {
+                                marker.innerHTML = `<div class="req-text" style="top: 15px;">ALL LV9</div>`;
+                                showRock = true;
+                            }
+                        }
+                    }
+
+                    // B. Tampilan Atas (LV 6 - 9)
+                    if (i >= 6) {
+                        if (index === 2) {
+                            // Keinginan (semua kotak ke atas hard)
+                            marker.classList.add('hard-state');
+                            if (i > lv) {
+                                if (!allOthersDone) {
+                                    showRock = true;
+                                    if (i === lv + 1) { // Hanya munculkan teks di kotak selanjutnya
+                                        marker.innerHTML = `<div class="req-text" style="top: 15px;">ALL LV9</div>`;
+                                    }
+                                }
+                            }
+                        } else {
+                            // 10 Titik Lainnya
+                            if (activeGreenPart === index && i === lv + 1) {
+                                marker.classList.add('active-green-state');
+                                marker.innerHTML = `<div class="req-text" style="top: 15px; color: #2ed573;">FLOW⚡</div>`;
+                                showRock = false; // Jalur terbuka
+                            } else {
+                                marker.classList.add('hard-state');
+                                if (i > lv) {
+                                    showRock = true; // Batu menghalangi
+                                }
+                            }
+                        }
+                    }
+
+                    // Update Render Batu
+                    const rock = document.getElementById(`rock-${index}-${i}`);
+                    if (showRock) {
+                        rock.innerText = '🪨';
+                        rock.classList.add('show');
+                        rock.classList.remove('destroyed');
+                    } else {
+                        if (rock.classList.contains('show')) {
+                            rock.classList.remove('show');
+                            rock.classList.add('destroyed');
+                        }
+                    }
                 }
             });
         }
 
-        function showWarning(targetLv, req) {
-            reqChiSpan.innerText = `${req} (Total Anda: ${getTotalChi()})`;
+        function showWarningLockRed(currentCount) {
+            document.getElementById('warning-title').innerText = "🔴 AREA MERAH (TEGANG)!";
+            document.getElementById('warning-text').innerText = "Titik ini sedang sulit dilepaskan dan terhalang batu. Jangan dipaksa! Anda harus menembus area Hijau terlebih dahulu.";
+            reqChiSpan.innerHTML = `Butuh minimal 3 area <span style='color:#2ed573'>Hijau</span> mencapai LV 5. (Saat ini: ${currentCount}/3)`;
+            warningOverlay.classList.add('show');
+        }
+
+        function showWarningKeinginan() {
+            document.getElementById('warning-title').innerText = "🔒 KEINGINAN TERKUNCI!";
+            document.getElementById('warning-text').innerText = "Keinginan adalah akar yang paling dalam. Anda tidak bisa melepaskannya sekarang.";
+            reqChiSpan.innerHTML = `Selesaikan <span style='color:var(--gold)'>10 titik lainnya</span> hingga Titik ZEN (LV 9) terlebih dahulu!`;
+            warningOverlay.classList.add('show');
+        }
+
+        function showWarningRandomGreen() {
+            document.getElementById('warning-title').innerText = "🪨 JALUR BUNTU!";
+            document.getElementById('warning-text').innerText = "Fokus Anda terpecah. Ikuti aliran relaksasi tubuh Anda. Cari dan gali titik yang menyala HIJAU!";
+            const activeName = activeGreenPart !== -1 ? holes[activeGreenPart].name : "Titik Hijau";
+            reqChiSpan.innerHTML = `Aliran relaksasi saat ini ada di: <span style='color:#2ed573; font-size:1.3rem;'>${activeName}</span>`;
             warningOverlay.classList.add('show');
         }
 
@@ -610,12 +811,8 @@
             }
         }
 
-        // Resize handler agar tunnel tetap pas jika layar diputar
         window.addEventListener('resize', updateUI);
-
-        // Jalankan game saat diload
         window.onload = initGame;
     </script>
-
 </body>
 </html>
